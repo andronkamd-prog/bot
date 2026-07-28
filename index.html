@@ -859,10 +859,16 @@
     const orig = btn.textContent;
     btn.textContent = 'Отправляем…';
     try {
+      const utm = (() => {
+        const q = new URLSearchParams(location.search), o = {};
+        ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => { const v = q.get(k); if (v) o[k] = v; });
+        if (document.referrer) o.utm_referrer = document.referrer;
+        return o;
+      })();
       const r = await fetch('https://miele-electronics.ru/lp-lead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, _hp })
+        body: JSON.stringify({ name, phone, _hp, ...utm })
       });
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.ok) {
