@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miele Electronics — оригинальная техника Miele | Доставка, гарантия 2 года</title>
+<meta name="description" content="Оригинальная бытовая техника Miele: стиральные машины, кофемашины, духовые шкафы, посудомоечные машины. Бесплатная доставка по Москве и СПб, гарантия 2 года, шоурум в Москве. 8 (800) 222-66-66">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#141414;
+    --ink-soft:#1b1b1b;
+    --paper:#F5F5F5;
+    --white:#ffffff;
+    --red:#8c0014;
+    --red-hover:#a8001a;
+    --line:rgba(20,20,20,.12);
+    --line-light:rgba(255,255,255,.14);
+    --muted:rgba(20,20,20,.62);
+    --muted-light:rgba(255,255,255,.66);
+    --display:'Tenor Sans',serif;
+    --body:'Golos Text',sans-serif;
+    --shadow:0 20px 50px -18px rgba(20,20,20,.22);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+
+  /* ---------- header ---------- */
+  .hdr{
+    position:sticky;top:0;z-index:60;
+    background:var(--ink);
+    color:var(--white);
+    border-bottom:1px solid var(--line-light);
+    transition:box-shadow .3s;
+  }
+  .hdr.scrolled{box-shadow:0 10px 30px rgba(0,0,0,.35)}
+  .hdr-in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .logo{display:flex;flex-direction:column;gap:3px;flex-shrink:0}
+  .logo svg{width:96px;height:auto;display:block}
+  .logo small{
+    font-size:9px;letter-spacing:.42em;text-transform:uppercase;
+    color:var(--muted-light);font-weight:500;
+  }
+  .hdr-phone{
+    display:flex;flex-direction:column;align-items:flex-end;line-height:1.25;
+    margin-left:auto;
+  }
+  .hdr-phone a{font-size:16px;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+  .hdr-phone span{font-size:11px;color:var(--muted-light)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:var(--red);color:var(--white);
+    font-family:var(--body);font-weight:600;font-size:14px;letter-spacing:.03em;
+    padding:13px 26px;border:none;cursor:pointer;
+    transition:background .25s, transform .2s;
+  }
+  .btn:hover{background:var(--red-hover);transform:translateY(-1px)}
+  .btn--ghost{
+    background:transparent;border:1px solid var(--line-light);color:var(--white);
+  }
+  .btn--ghost:hover{background:rgba(255,255,255,.08)}
+  .hdr .btn{padding:11px 20px;font-size:13px}
+  .hdr-cta-label-sm{display:none}
+  @media (max-width:640px){
+    .hdr-phone span{display:none}
+    .hdr-phone a{font-size:14px}
+    .hdr .btn{padding:10px 14px}
+    .hdr-cta-label{display:none}
+    .hdr-cta-label-sm{display:inline}
+    .logo svg{width:78px}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    background:var(--ink);color:var(--white);
+    position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:
+      radial-gradient(900px 500px at 85% -10%, rgba(140,0,20,.28), transparent 60%),
+      radial-gradient(700px 500px at -10% 110%, rgba(255,255,255,.05), transparent 55%);
+    pointer-events:none;
+  }
+  .hero-in{
+    position:relative;
+    display:grid;gap:48px;
+    padding:64px 0 72px;
+  }
+  .hero-kicker{
+    display:inline-flex;align-items:center;gap:12px;
+    font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted-light);
+  }
+  .hero-kicker::before{content:"";width:34px;height:1px;background:var(--red);flex-shrink:0}
+  .hero h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(34px,6.2vw,64px);
+    line-height:1.08;letter-spacing:.01em;
+    margin:22px 0 20px;
+  }
+  .hero h1 em{font-style:normal;color:#e8b7bd;position:relative;white-space:nowrap}
+  .hero h1 em::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--red);
+  }
+  .hero p.lead{
+    font-size:16px;color:var(--muted-light);max-width:46ch;margin-bottom:34px;
+  }
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:44px}
+  .hero-facts{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:0;
+    border-top:1px solid var(--line-light);
+  }
+  .hero-facts div{
+    padding:16px 18px 16px 0;border-bottom:1px solid var(--line-light);
+  }
+  .hero-facts b{display:block;font-family:var(--display);font-weight:400;font-size:19px;letter-spacing:.01em}
+  .hero-facts span{font-size:12.5px;color:var(--muted-light)}
+  .hero-visual{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;align-content:center;
+  }
+  .hero-visual figure{
+    position:relative;overflow:hidden;background:#222;
+  }
+  .hero-visual img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+  .hero-visual figure:hover img{transform:scale(1.05)}
+  .hero-visual figure:nth-child(1){grid-row:span 2}
+  .hero-visual figure:nth-child(1) img{min-height:100%}
+  .hero-visual figure:nth-child(3){border-bottom:3px solid var(--red)}
+  @media (min-width:920px){
+    .hero-in{grid-template-columns:1.1fr .9fr;gap:64px;padding:84px 0 92px}
+    .hero-visual{min-height:480px}
+  }
+
+  /* ---------- trust strip ---------- */
+  .trust{background:var(--white);border-bottom:1px solid var(--line)}
+  .trust-in{
+    display:grid;grid-template-columns:repeat(2,1fr);
+  }
+  .trust-item{
+    padding:22px 18px;display:flex;gap:14px;align-items:flex-start;
+    border-top:1px solid var(--line);
+  }
+  .trust-item svg{flex-shrink:0;margin-top:2px}
+  .trust-item b{display:block;font-size:14px;font-weight:600;letter-spacing:.01em}
+  .trust-item span{font-size:12.5px;color:var(--muted)}
+  @media (min-width:920px){
+    .trust-in{grid-template-columns:repeat(4,1fr)}
+    .trust-item{border-top:none;padding:26px 22px}
+    .trust-item + .trust-item{border-left:1px solid var(--line)}
+  }
+
+  /* ---------- sections common ---------- */
+  section{scroll-margin-top:80px}
+  .sec{padding:72px 0}
+  .sec-head{margin-bottom:40px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px}
+  .kicker{
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--red);
+    font-weight:600;display:block;margin-bottom:12px;
+  }
+  h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(26px,4vw,40px);line-height:1.12;letter-spacing:.01em;
+  }
+  .sec-head p{color:var(--muted);font-size:15px;max-width:52ch}
+  .link-arrow{
+    font-size:13.5px;font-weight:600;letter-spacing:.04em;white-space:nowrap;
+    border-bottom:1px solid var(--red);padding-bottom:3px;
+    transition:color .2s;
+  }
+  .link-arrow:hover{color:var(--red)}
+
+  /* ---------- categories ---------- */
+  .cats{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:12px;
+  }
+  .cat{
+    position:relative;overflow:hidden;aspect-ratio:385/400;
+    background:#ddd;display:flex;align-items:flex-end;
+  }
+  .cat img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform .7s cubic-bezier(.2,.7,.2,1);
+  }
+  .cat::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(20,20,20,0) 40%,rgba(20,20,20,.72) 100%);
+    transition:opacity .4s;
+  }
+  .cat:hover img{transform:scale(1.06)}
+  .cat-name{
+    position:relative;z-index:2;color:var(--white);
+    padding:16px;font-size:15px;font-weight:600;letter-spacing:.02em;
+    display:flex;align-items:center;gap:8px;width:100%;
+  }
+  .cat-name::after{
+    content:"→";font-weight:400;opacity:0;transform:translateX(-6px);
+    transition:opacity .3s,transform .3s;
+  }
+  .cat:hover .cat-name::after{opacity:1;transform:translateX(0)}
+  @media (min-width:700px){.cats{grid-template-columns:repeat(3,1fr);gap:14px}}
+  @media (min-width:1000px){
+    .cats{grid-template-columns:repeat(4,1fr)}
+    .cat:first-child{grid-column:span 2;grid-row:span 1;aspect-ratio:auto}
+    .cat:nth-child(6){grid-column:span 2;aspect-ratio:auto}
+  }
+
+  /* ---------- products ---------- */
+  .sec--prod{background:var(--white)}
+  .prods{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .prod{
+    background:var(--paper);
+    display:flex;flex-direction:column;
+    transition:transform .3s,box-shadow .3s;
+    position:relative;
+  }
+  .prod:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .prod-img{
+    background:var(--white);aspect-ratio:1/1;
+    display:flex;align-items:center;justify-content:center;padding:18px;
+  }
+  .prod-img img{max-height:100%;object-fit:contain;mix-blend-mode:multiply}
+  .prod-body{padding:16px 16px 20px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .prod-cat{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--red);font-weight:600}
+  .prod-name{font-size:14px;font-weight:500;line-height:1.4;flex:1}
+  .prod-price{font-family:var(--display);font-size:20px;letter-spacing:.01em}
+  .prod-go{
+    font-size:12.5px;font-weight:600;color:var(--muted);
+    display:inline-flex;gap:6px;align-items:center;margin-top:2px;
+    transition:color .2s;
+  }
+  .prod:hover .prod-go{color:var(--red)}
+  @media (min-width:700px){.prods{grid-template-columns:repeat(3,1fr);gap:16px}}
+  @media (min-width:1000px){.prods{grid-template-columns:repeat(3,1fr);gap:20px}
+    .prod-body{padding:20px 20px 24px}
+  }
+
+  /* ---------- why ---------- */
+  .sec--why{background:var(--ink);color:var(--white)}
+  .sec--why .kicker{color:#e8b7bd}
+  .why-grid{display:grid;gap:0;border-top:1px solid var(--line-light)}
+  .why{
+    padding:28px 0;border-bottom:1px solid var(--line-light);
+    display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:flex-start;
+  }
+  .why-num{
+    font-family:var(--display);font-size:15px;color:var(--muted-light);
+    border:1px solid var(--line-light);width:44px;height:44px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .why b{display:block;font-family:var(--display);font-weight:400;font-size:19px;margin-bottom:8px;letter-spacing:.01em}
+  .why p{font-size:14px;color:var(--muted-light);max-width:60ch}
+  @media (min-width:920px){
+    .why-grid{grid-template-columns:1fr 1fr;column-gap:64px}
+  }
+
+  /* ---------- services ---------- */
+  .serv-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  .serv{
+    background:var(--white);padding:24px 20px;
+    border-top:2px solid var(--ink);
+    transition:border-color .3s, transform .3s;
+  }
+  .serv:hover{border-top-color:var(--red);transform:translateY(-3px)}
+  .serv b{display:block;font-size:14.5px;font-weight:600;margin-bottom:8px}
+  .serv p{font-size:13px;color:var(--muted)}
+  @media (min-width:920px){.serv-grid{grid-template-columns:repeat(4,1fr);gap:18px}
+    .serv{padding:28px 24px}
+  }
+
+  /* ---------- reviews ---------- */
+  .sec--rev{background:var(--white)}
+  .revs{display:grid;gap:14px}
+  .rev{
+    background:var(--paper);padding:24px 22px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .rev-stars{color:var(--red);font-size:13px;letter-spacing:.2em}
+  .rev p{font-size:14px;line-height:1.6;flex:1}
+  .rev footer{font-size:12.5px;color:var(--muted)}
+  .rev footer b{color:var(--ink);font-weight:600;display:block;font-size:13px}
+  @media (min-width:920px){.revs{grid-template-columns:repeat(3,1fr);gap:18px}}
+
+  /* ---------- form / contact ---------- */
+  .sec--form{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+  .sec--form::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(700px 400px at 100% 0%, rgba(140,0,20,.3), transparent 60%);
+    pointer-events:none;
+  }
+  .form-in{position:relative;display:grid;gap:48px}
+  .form-card{
+    background:var(--white);color:var(--ink);padding:32px 26px;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .form-card h3{font-family:var(--display);font-weight:400;font-size:22px;line-height:1.2}
+  .field label{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;font-weight:600}
+  .field input{
+    width:100%;border:1px solid var(--line);background:var(--paper);
+    padding:14px 16px;font-family:var(--body);font-size:15px;color:var(--ink);
+    outline:none;transition:border-color .2s;
+  }
+  .field input:focus{border-color:var(--ink)}
+  .form-card .btn{width:100%;padding:16px}
+  .form-note{font-size:12px;color:var(--muted);line-height:1.5}
+  .form-alt{font-size:13.5px;color:var(--muted)}
+  .form-alt a{font-weight:600;color:var(--red);white-space:nowrap}
+  .sec--form .kicker{color:#e8b7bd}
+  .contact-list{display:grid;gap:26px;margin-top:34px}
+  .contact-item b{
+    display:block;font-family:var(--display);font-weight:400;
+    font-size:18px;margin-bottom:6px;letter-spacing:.01em;
+  }
+  .contact-item p{font-size:14px;color:var(--muted-light)}
+  .contact-item a.big{
+    font-family:var(--display);font-size:clamp(24px,4vw,32px);letter-spacing:.02em;
+    display:inline-block;margin-top:2px;
+    border-bottom:1px solid transparent;transition:border-color .2s;
+  }
+  .contact-item a.big:hover{border-color:var(--red)}
+  .metro{display:inline-block;font-size:12px;color:var(--muted-light);margin-top:4px}
+  .metro i{
+    font-style:normal;display:inline-block;width:8px;height:8px;border-radius:50%;
+    background:var(--red);margin-right:6px;
+  }
+  @media (min-width:920px){
+    .form-in{grid-template-columns:1fr 420px;align-items:start;gap:72px}
+    .form-card{padding:40px 36px}
+  }
+
+  /* ---------- footer ---------- */
+  .ftr{background:#0e0e0e;color:var(--muted-light);font-size:13px}
+  .ftr-in{padding:44px 0 32px;display:grid;gap:32px}
+  .ftr .logo small{color:rgba(255,255,255,.4)}
+  .ftr-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .ftr-col b{display:block;color:var(--white);font-weight:600;font-size:13px;margin-bottom:12px;letter-spacing:.04em}
+  .ftr-col a{display:block;padding:4px 0;transition:color .2s}
+  .ftr-col a:hover{color:var(--white)}
+  .ftr-bottom{
+    border-top:1px solid var(--line-light);padding:18px 0 26px;
+    display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;
+    font-size:12px;color:rgba(255,255,255,.4);
+  }
+  .ftr-bottom a:hover{color:var(--white)}
+  @media (min-width:920px){
+    .ftr-in{grid-template-columns:280px 1fr;gap:64px}
+    .ftr-cols{grid-template-columns:repeat(3,1fr);gap:32px}
+  }
+
+  /* ---------- promo / акция ---------- */
+  .sec--promo{background:var(--ink);color:var(--white);position:relative;overflow:hidden}
+  .sec--promo::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(820px 520px at 10% -20%, rgba(140,0,20,.60), transparent 60%),
+      radial-gradient(720px 520px at 112% 125%, rgba(140,0,20,.38), transparent 55%);
+  }
+  .promo-in{position:relative}
+  .promo-badge{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:#e8b7bd;
+    border:1px solid var(--line-light);padding:8px 16px;border-radius:100px;
+  }
+  .promo-cut{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(28px,4.6vw,44px);line-height:1.08;letter-spacing:.01em;
+    margin:22px 0 16px;
+  }
+  .promo-cut em{font-style:normal;color:#e8b7bd;position:relative;white-space:nowrap}
+  .promo-cut em::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:2px;background:var(--red)}
+  .promo-lead{font-size:15.5px;color:var(--muted-light);max-width:46ch;margin-bottom:22px}
+  .promo-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .promo-note{font-size:12.5px;color:var(--muted-light);margin-top:20px;max-width:52ch}
+  .gift{display:grid;gap:12px}
+  .gift-item{
+    display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:center;
+    background:rgba(255,255,255,.05);border:1px solid var(--line-light);padding:15px 18px;
+    transition:background .3s,transform .3s;
+  }
+  .gift-item:hover{background:rgba(255,255,255,.09);transform:translateY(-2px)}
+  .gift-ic{width:52px;height:52px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .gift-item b{display:block;font-size:14.5px;font-weight:600;letter-spacing:.01em;line-height:1.35}
+  .gift-item p{font-size:12.5px;color:var(--muted-light);margin-top:3px}
+  .gift-qty{
+    font-family:var(--display);font-size:15px;color:#e8b7bd;white-space:nowrap;
+    border:1px solid var(--line-light);border-radius:100px;padding:5px 12px;
+  }
+  @media (min-width:920px){
+    .promo-in{display:grid;grid-template-columns:1.02fr .98fr;gap:72px;align-items:center}
+  }
+
+  /* ---------- reveal animation ---------- */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .rv.on{opacity:1;transform:none}
+  .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+  @media (prefers-reduced-motion:reduce){
+    .rv{opacity:1;transform:none;transition:none}
+    *{scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="hdr" id="top">
+  <div class="wrap hdr-in">
+    <a href="#top" class="logo" aria-label="Miele Electronics">
+      <svg viewBox="0 0 625 127" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Miele">
+        <path fill="#ffffff" d="M556.279 84.5264H555.779V85.0264V94.0464C555.779 101.915 562.188 109.091 572.146 109.091C579.256 109.091 584.255 106.106 587.613 102.497C590.791 99.0802 592.5 95.1043 593.165 92.5635C600.52 92.5634 607.093 92.5611 612.366 92.5589L616.893 92.5568C619.575 92.5556 621.717 92.5546 623.204 92.5543C618.319 108.151 599.468 126.5 564.982 126.5C542.183 126.5 527.281 119.658 518.078 110.271C508.869 100.877 505.314 88.8799 505.314 78.4781C505.314 67.387 509.418 55.244 518.899 45.8743C528.375 36.5102 543.263 29.8751 564.907 29.8751C602.299 29.8751 624.5 53.8698 624.5 78.4873C624.5 80.5591 624.421 82.182 624.343 83.2847C624.305 83.8275 624.266 84.2443 624.237 84.5264H556.279ZM555.779 69.8638V70.3638H556.279H573.702H574.202V69.8638V57.4959C574.202 55.526 573.499 53.0094 572.001 50.975C570.491 48.9254 568.159 47.3487 564.932 47.3487C561.924 47.3487 559.625 48.8643 558.093 50.8675C556.569 52.8598 555.779 55.3641 555.779 57.4405V69.8638ZM428.646 103.825H429.146V103.325V24.2932V23.7932H428.646H416.764V5.43428H486.882V103.325V103.825H487.382H499.43V122.174H416.764V103.825H428.646ZM342.451 84.5264H341.951V85.0264V94.0464C341.951 101.916 348.378 109.091 358.335 109.091C365.441 109.091 370.44 106.106 373.797 102.497C376.976 99.0806 378.684 95.105 379.346 92.5635C386.705 92.5634 393.28 92.5611 398.554 92.5589L403.083 92.5568C405.765 92.5556 407.906 92.5546 409.392 92.5543C404.508 108.151 385.649 126.5 351.171 126.5C328.367 126.5 313.465 119.658 304.264 110.271C295.055 100.877 291.503 88.88 291.503 78.4781C291.503 67.3869 295.603 55.2439 305.083 45.8743C314.557 36.5102 329.447 29.8751 351.104 29.8751C388.48 29.8751 410.697 53.8699 410.697 78.4873C410.697 80.5587 410.617 82.1814 410.536 83.2838C410.497 83.8273 410.457 84.2444 410.427 84.5264H342.451ZM341.951 69.8638V70.3638H342.451H359.883H360.383V69.8638V57.4959C360.383 55.526 359.679 53.0094 358.181 50.975C356.672 48.9254 354.34 47.3487 351.113 47.3487C348.109 47.3487 345.807 48.8643 344.272 50.8671C342.746 52.8591 341.951 55.3634 341.951 57.4405V69.8638ZM217.997 53.5115V53.0115H217.497H205.466V34.6526H273.196V103.325V103.825H273.696H285.735V122.174H205.466V103.825H217.497H217.997V103.325V53.5115ZM32.3929 103.825H44.4406V122.174H0.5V103.825H12.3897H12.8897V103.325V24.3025V23.8025H12.3897H0.5V5.43428H70.6982L100.713 51.1482L101.132 51.7864L101.55 51.1473L131.415 5.43428H193.192V23.8025H181.152H180.652V24.3025V103.325V103.825H181.152H193.192V122.174H112.897V103.825H124.945H125.445V103.325V52.1097V50.4328L124.527 51.8358L78.7556 121.763L32.8107 51.8351L31.8929 50.4381V52.1097V103.325V103.825H32.3929ZM238.196 31.1507L230.527 14.8143L255.22 0.701978L262.887 16.8786L238.196 31.1507Z"/>
+      </svg>
+      <small>Electronics</small>
+    </a>
+    <div class="hdr-phone">
+      <a href="tel:+78002226666">8 (800) 222-66-66</a>
+      <span>Ежедневно с 10:00 до 22:00</span>
+    </div>
+    <a class="btn" href="#zayavka"><span class="hdr-cta-label">Оставить заявку</span><span class="hdr-cta-label-sm">Заявка</span></a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-in">
+    <div>
+      <span class="hero-kicker rv">Официальный интернет-магазин Miele</span>
+      <h1 class="rv rv-d1">Оригинальная техника <em>Miele</em> — для дома, который вы любите</h1>
+      <p class="lead rv rv-d2">Немецкая надёжность в заводской упаковке: стиральные машины, кофемашины, духовые шкафы и встраиваемая техника. Русифицированное меню, официальная гарантия и доставка по всей России.</p>
+      <div class="hero-actions rv rv-d3">
+        <a class="btn" href="#catalog">Выбрать технику</a>
+        <a class="btn btn--ghost" href="tel:+78002226666">8 (800) 222-66-66</a>
+      </div>
+      <div class="hero-facts rv rv-d3">
+        <div><b>В день заказа</b><span>доставка при наличии товара</span></div>
+        <div><b>2 года</b><span>официальная гарантия</span></div>
+        <div><b>При получении</b><span>оплата наличными или картой</span></div>
+        <div><b>Русификация</b><span>меню и инструкции на русском</span></div>
+      </div>
+    </div>
+    <div class="hero-visual rv rv-d2" aria-hidden="true">
+      <figure><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/0c6/q982v8zwa2fwi5qcfux2c77tpcd4a8lg.webp" alt="" loading="eager"></figure>
+      <figure><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c0d/6dp71n83bx3we02ydssumkmek2sz9yap.webp" alt="" loading="lazy"></figure>
+      <figure><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e7a/7qsg6kw3c6nf0xcd3kqzy38mqnewe9jy.webp" alt="" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRUST ================= -->
+<div class="trust">
+  <div class="wrap trust-in">
+    <div class="trust-item rv">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>
+      <div><b>Оригинальная техника</b><span>поставки из Евросоюза и стран СНГ в заводской упаковке</span></div>
+    </div>
+    <div class="trust-item rv rv-d1">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><rect x="2" y="7" width="13" height="10"/><path d="M15 10h4l3 3v4h-7M5 20a2 2 0 100-4 2 2 0 000 4zm12 0a2 2 0 100-4 2 2 0 000 4z"/></svg>
+      <div><b>Бесплатная доставка</b><span>и подъём на этаж по Москве и Санкт-Петербургу</span></div>
+    </div>
+    <div class="trust-item rv rv-d2">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
+      <div><b>Шоурум в Москве</b><span>ТЦ «Краснопрудный» — вся техника вживую</span></div>
+    </div>
+    <div class="trust-item rv rv-d3">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+      <div><b>Сервис по всей России</b><span>авторизованные сервисные центры и оригинальные запчасти</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CATEGORIES ================= -->
+<section class="sec" id="catalog">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Каталог</span>
+        <h2>Популярные категории</h2>
+      </div>
+      <a class="link-arrow" href="https://miele-electronics.ru/catalog/">Все категории →</a>
+    </div>
+    <div class="cats">
+      <a class="cat rv" href="https://miele-electronics.ru/catalog/stiralnye-mashiny/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/0c6/q982v8zwa2fwi5qcfux2c77tpcd4a8lg.webp" alt="Стиральные машины Miele" loading="lazy">
+        <span class="cat-name">Стиральные машины</span>
+      </a>
+      <a class="cat rv rv-d1" href="https://miele-electronics.ru/catalog/sushilnye-mashiny/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8a5/6jthlk3okgozoeim1mhh79i8s54kna19.webp" alt="Сушильные машины Miele" loading="lazy">
+        <span class="cat-name">Сушильные машины</span>
+      </a>
+      <a class="cat rv rv-d2" href="https://miele-electronics.ru/catalog/posudomoechnye-mashiny/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/7df/2sp5u3kwe78360omfj9mo7bdy9akcjji.webp" alt="Посудомоечные машины Miele" loading="lazy">
+        <span class="cat-name">Посудомоечные машины</span>
+      </a>
+      <a class="cat rv" href="https://miele-electronics.ru/catalog/kofemashiny/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c0d/6dp71n83bx3we02ydssumkmek2sz9yap.webp" alt="Кофемашины Miele" loading="lazy">
+        <span class="cat-name">Кофемашины</span>
+      </a>
+      <a class="cat rv rv-d1" href="https://miele-electronics.ru/catalog/dukhovye-shkafy/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e7a/7qsg6kw3c6nf0xcd3kqzy38mqnewe9jy.webp" alt="Духовые шкафы Miele" loading="lazy">
+        <span class="cat-name">Духовые шкафы</span>
+      </a>
+      <a class="cat rv rv-d2" href="https://miele-electronics.ru/catalog/vytyazhki/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3a1/bv6n9deq0la0ogeu1ha8gtgnxmm4jon9.webp" alt="Вытяжки Miele" loading="lazy">
+        <span class="cat-name">Вытяжки</span>
+      </a>
+      <a class="cat rv" href="https://miele-electronics.ru/catalog/kholodilniki-i-morozilniki/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6db/vp1rar7uqvadq75pgo37wuhlgi5g1a0f.webp" alt="Холодильники и морозильники Miele" loading="lazy">
+        <span class="cat-name">Холодильники</span>
+      </a>
+      <a class="cat rv rv-d1" href="https://miele-electronics.ru/catalog/pylesosy/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ca3/mrmqbvrxb7ckm35ypbbbmad2t6ixrw6p.webp" alt="Пылесосы Miele" loading="lazy">
+        <span class="cat-name">Пылесосы</span>
+      </a>
+      <a class="cat rv rv-d2" href="https://miele-electronics.ru/catalog/mikrovolnovye-pechi/">
+        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/678/q0snfyyqkwi0psvhhu8nagxumygeb5ce.webp" alt="Микроволновые печи Miele" loading="lazy">
+        <span class="cat-name">Микроволновые печи</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PRODUCTS ================= -->
+<section class="sec sec--prod" id="hits">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Хиты продаж</span>
+        <h2>Лучшие модели по мнению наших клиентов</h2>
+      </div>
+      <a class="link-arrow" href="https://miele-electronics.ru/catalog/">Смотреть весь каталог →</a>
+    </div>
+    <div class="prods">
+      <a class="prod rv" href="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wei865wps-chrome-edition-1633677424/">
+        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e54/2bdyir546tld6t4pgs5zxkijnhfc88h6.webp" alt="Стиральная машина Miele WEI865WPS Chrome Edition" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-cat">Стиральная машина</span>
+          <span class="prod-name">MIELE WEI865WPS Chrome Edition, фронтальная</span>
+          <span class="prod-price">297 000 ₽</span>
+          <span class="prod-go">Подробнее →</span>
+        </div>
+      </a>
+      <a class="prod rv rv-d1" href="https://miele-electronics.ru/product/stiralno-sushilnaya-mashina-miele-wtr870wpm-838595276/">
+        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/5ee/vg5aj7rghywy0btpvg85raibzu3b7or2.webp" alt="Стирально-сушильная машина Miele WTR870WPM" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-cat">Стирально-сушильная машина</span>
+          <span class="prod-name">MIELE WTR870WPM</span>
+          <span class="prod-price">325 000 ₽</span>
+          <span class="prod-go">Подробнее →</span>
+        </div>
+      </a>
+      <a class="prod rv rv-d2" href="https://miele-electronics.ru/product/kofemashina-zernovaya-cva7440-obsw/">
+        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6e5/u10hkabjns49rbt8a9qtlsdtsst00ppb.webp" alt="Кофемашина зерновая Miele CVA7440 OBSW" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-cat">Кофемашина</span>
+          <span class="prod-name">Кофемашина зерновая CVA7440 OBSW, встраиваемая</span>
+          <span class="prod-price">339 000 ₽</span>
+          <span class="prod-go">Подробнее →</span>
+        </div>
+      </a>
+      <a class="prod rv" href="https://miele-electronics.ru/product/dukhovoy-shkaf-h7464bp-obsw/">
+        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/eb7/im1u2pzz8vxd9zznlzdtxrn2bw0qffz4.webp" alt="Духовой шкаф Miele H7464BP OBSW с пароваркой" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-cat">Духовой шкаф</span>
+          <span class="prod-name">Miele H7464BP OBSW с пароваркой, 60 см</span>
+          <span class="prod-price">309 000 ₽</span>
+          <span class="prod-go">Подробнее →</span>
+        </div>
+      </a>
+      <a class="prod rv rv-d1" href="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g7673-scvi/">
+        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/442/b3efaium5kjtva38ckvlzg2zijpso996.webp" alt="Посудомоечная машина Miele G7673 SCVi" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-cat">Посудомоечная машина</span>
+          <span class="prod-name">Miele G7673 SCVi, встраиваемая</span>
+          <span class="prod-price">278 000 ₽</span>
+          <span class="prod-go">Подробнее →</span>
+        </div>
+      </a>
+      <a class="prod rv rv-d2" href="https://miele-electronics.ru/product/pylesos-sbad3-classic-c1-belyy-lotos-9666980/">
+        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e50/ohax2gcre26kw7553rp31htksessznxy.webp" alt="Пылесос Miele SBAD3 Classic C1 белый лотос" loading="lazy"></div>
+        <div class="prod-body">
+          <span class="prod-cat">Пылесос</span>
+          <span class="prod-name">Miele SBAD3 Classic C1, белый лотос</span>
+          <span class="prod-price">32 000 ₽</span>
+          <span class="prod-go">Подробнее →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROMO / АКЦИЯ ================= -->
+<section class="sec sec--promo" id="akciya">
+  <div class="wrap promo-in">
+    <div>
+      <span class="promo-badge rv">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#e8b7bd" stroke-width="1.6"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 22V7M12 7S9 2 6.5 3.5 8 7 12 7zm0 0s3-5 5.5-3.5S16 7 12 7z"/></svg>
+        Акция
+      </span>
+      <div class="promo-cut rv rv-d1">При покупке техники <em>от 30 000 ₽</em> —<br>набор премиальной химии Miele в подарок</div>
+      <p class="promo-lead rv rv-d2">Фирменные средства ухода Miele, чтобы техника и любимые вещи служили дольше. Подарочный набор добавляется к вашему заказу.</p>
+      <div class="promo-actions rv rv-d2">
+        <a class="btn" href="#zayavka">Забрать подарок</a>
+        <a class="btn btn--ghost" href="tel:+78002226666">8 (800) 222-66-66</a>
+      </div>
+      <p class="promo-note rv rv-d3">Подарок предоставляется при оформлении заказа на сумму от 30 000 ₽. Состав набора может уточняться — детали подскажет менеджер.</p>
+    </div>
+    <div class="gift rv rv-d1">
+      <div class="gift-item">
+        <span class="gift-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M12 3s6 6.6 6 11a6 6 0 11-12 0c0-4.4 6-11 6-11z"/></svg></span>
+        <div><b>Ароматизатор для сушильной машины</b><p>свежесть белья после каждой сушки</p></div>
+        <span class="gift-qty">1 шт</span>
+      </div>
+      <div class="gift-item">
+        <span class="gift-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><path d="M8 3l4 3 4-3 4 4-3 3v11H7V10L4 7z"/></svg></span>
+        <div><b>Средство для стирки деликатных вещей</b><p>бережный уход за тонкими тканями</p></div>
+        <span class="gift-qty">1 шт</span>
+      </div>
+      <div class="gift-item">
+        <span class="gift-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6"><rect x="3.5" y="8.5" width="17" height="7" rx="3.5"/><path d="M12 8.5v7"/></svg></span>
+        <div><b>Капсулы для стирки деликатных вещей</b><p>удобная дозировка в каждой стирке</p></div>
+        <span class="gift-qty">1 шт</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY ================= -->
+<section class="sec sec--why" id="why">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Почему мы</span>
+        <h2>Всё для комфортной покупки</h2>
+      </div>
+      <p style="color:var(--muted-light)">Мы позаботились о каждом этапе — от выбора до эксплуатации.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why rv">
+        <span class="why-num">01</span>
+        <div>
+          <b>Бесплатная доставка и подъём</b>
+          <p>Доставляем технику Miele бесплатно по Москве, Санкт-Петербургу и всей России. Подъём на этаж — также бесплатно в пределах МКАД и КАД. Оплата возможна наличными при получении.</p>
+        </div>
+      </div>
+      <div class="why rv rv-d1">
+        <span class="why-num">02</span>
+        <div>
+          <b>Гарантия 2 года + сервис по всей России</b>
+          <p>На всю технику действует официальная гарантия 2 года. Обслуживание в авторизованных сервисных центрах по всей стране и быстрая поставка оригинальных запчастей.</p>
+        </div>
+      </div>
+      <div class="why rv">
+        <span class="why-num">03</span>
+        <div>
+          <b>Установка и настройка техники</b>
+          <p>Помогаем с профессиональной установкой техники после доставки. Все приборы проходят русификацию — меню и инструкции полностью на русском языке.</p>
+        </div>
+      </div>
+      <div class="why rv rv-d1">
+        <span class="why-num">04</span>
+        <div>
+          <b>Официальный магазин Miele</b>
+          <p>Продаём только оригинальную технику Miele с заводской гарантией и полным пакетом документов — подлинность каждого прибора подтверждена.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Услуги</span>
+        <h2>Поможем на каждом шаге</h2>
+      </div>
+    </div>
+    <div class="serv-grid">
+      <div class="serv rv">
+        <b>Подбор техники экспертом</b>
+        <p>Подберём приборы под ваши размеры и задачи, продемонстрируем функционал в шоуруме.</p>
+      </div>
+      <div class="serv rv rv-d1">
+        <b>Установка и подключение</b>
+        <p>Сертифицированные специалисты установят и подключат технику. Стоимость зависит от сложности работ.</p>
+      </div>
+      <div class="serv rv rv-d2">
+        <b>Срочная доставка</b>
+        <p>Для срочных заказов при наличии свободного транспорта — доставка в течение 2–5 часов. В регионы — транспортными компаниями.</p>
+      </div>
+      <div class="serv rv rv-d3">
+        <b>Удобная оплата</b>
+        <p>Наличными, картой, по QR-коду или переводом на расчётный счёт — как вам удобнее.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="sec sec--rev" id="reviews">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="kicker">Отзывы</span>
+        <h2>Отзывы наших клиентов</h2>
+      </div>
+      <p>Больше отзывов о нашей работе — на Яндекс Картах и Отзовике.</p>
+    </div>
+    <div class="revs">
+      <div class="rev rv">
+        <span class="rev-stars" aria-label="5 из 5">★★★★★</span>
+        <p>«Классные ребята! Всё быстро привезли. Со мной работал менеджер Олег, всё грамотно объяснил и посоветовал, какую технику лучше брать для кухни.»</p>
+        <footer><b>Nika Fedchenko</b>14 июля</footer>
+      </div>
+      <div class="rev rv rv-d1">
+        <span class="rev-stars" aria-label="5 из 5">★★★★★</span>
+        <p>«Прекрасный выбор бытовой техники! Если нет того, что вам нужно — найдут и доставят. Компетентный персонал, ненавязчивые предложения и консультации. Приобретала стиральную машину — всем довольна.»</p>
+        <footer><b>Селиверстова Яна</b>23 февраля</footer>
+      </div>
+      <div class="rev rv rv-d2">
+        <span class="rev-stars" aria-label="5 из 5">★★★★★</span>
+        <p>«Выбирали с супругой технику на кухню: нам грамотно объяснили и продемонстрировали весь функционал, подобрали приборы исходя из наших размеров. Приятно, что есть профессионалы своего дела!»</p>
+        <footer><b>KiT Garudovich</b>25 апреля</footer>
+      </div>
+      <div class="rev rv">
+        <span class="rev-stars" aria-label="5 из 5">★★★★★</span>
+        <p>«Помогли мне подобрать технику для кухни 🔥 Грамотные специалисты, во всём помогут и подскажут 🙏 Доставка вышла не так дорого. Спасибо вам ❤️ Удобное расположение офиса.»</p>
+        <footer><b>Кристина Булычева</b>17 июня</footer>
+      </div>
+      <div class="rev rv rv-d1">
+        <span class="rev-stars" aria-label="5 из 5">★★★★★</span>
+        <p>«Ну наконец-то я нашла грамотных специалистов! Быстро и чётко помогли с выбором качественной техники 🔥 Ребята, большое вам спасибо 🫶 Рекомендасьён всем от души ❤️»</p>
+        <footer><b>Арина</b>7 июля</footer>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FORM + CONTACTS ================= -->
+<section class="sec sec--form" id="zayavka">
+  <div class="wrap form-in">
+    <div>
+      <span class="kicker rv">Контакты</span>
+      <h2 class="rv rv-d1">Поможем выбрать идеальную технику Miele</h2>
+      <div class="contact-list">
+        <div class="contact-item rv rv-d1">
+          <b>Телефон</b>
+          <a class="big" href="tel:+78002226666">8 (800) 222-66-66</a>
+          <p>Ежедневно с 10:00 до 22:00 · <a href="mailto:miele@miele-electronics.ru" style="border-bottom:1px solid var(--line-light)">miele@miele-electronics.ru</a></p>
+        </div>
+        <div class="contact-item rv rv-d2">
+          <b>Шоурум в Москве — ТЦ «Краснопрудный»</b>
+          <p>ул. Краснопрудная, дом 15, этаж 2 · ежедневно с 10:00 до 22:00</p>
+          <span class="metro"><i></i>Красносельская&nbsp;&nbsp;<i></i>Комсомольская</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-card rv rv-d2">
+      <h3>Оставьте контакты — эксперт перезвонит, ответит на вопросы и поможет оформить заказ</h3>
+      <div class="field">
+        <label for="f-name">Ваше имя</label>
+        <input id="f-name" type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="f-phone">Телефон</label>
+        <input id="f-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel">
+      </div>
+      <a class="btn" href="tel:+78002226666">Позвонить: 8 (800) 222-66-66</a>
+      <p class="form-note">На этой странице заявка не отправляется автоматически — нажмите кнопку, чтобы сразу позвонить нам, или напишите на почту.</p>
+      <p class="form-alt">Почта: <a href="mailto:miele@miele-electronics.ru">miele@miele-electronics.ru</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-in">
+      <div>
+        <a href="#top" class="logo" aria-label="Miele Electronics" style="margin-bottom:16px">
+          <svg viewBox="0 0 625 127" xmlns="http://www.w3.org/2000/svg" style="width:110px" role="img" aria-label="Miele">
+            <path fill="#ffffff" d="M556.279 84.5264H555.779V85.0264V94.0464C555.779 101.915 562.188 109.091 572.146 109.091C579.256 109.091 584.255 106.106 587.613 102.497C590.791 99.0802 592.5 95.1043 593.165 92.5635C600.52 92.5634 607.093 92.5611 612.366 92.5589L616.893 92.5568C619.575 92.5556 621.717 92.5546 623.204 92.5543C618.319 108.151 599.468 126.5 564.982 126.5C542.183 126.5 527.281 119.658 518.078 110.271C508.869 100.877 505.314 88.8799 505.314 78.4781C505.314 67.387 509.418 55.244 518.899 45.8743C528.375 36.5102 543.263 29.8751 564.907 29.8751C602.299 29.8751 624.5 53.8698 624.5 78.4873C624.5 80.5591 624.421 82.182 624.343 83.2847C624.305 83.8275 624.266 84.2443 624.237 84.5264H556.279ZM555.779 69.8638V70.3638H556.279H573.702H574.202V69.8638V57.4959C574.202 55.526 573.499 53.0094 572.001 50.975C570.491 48.9254 568.159 47.3487 564.932 47.3487C561.924 47.3487 559.625 48.8643 558.093 50.8675C556.569 52.8598 555.779 55.3641 555.779 57.4405V69.8638ZM428.646 103.825H429.146V103.325V24.2932V23.7932H428.646H416.764V5.43428H486.882V103.325V103.825H487.382H499.43V122.174H416.764V103.825H428.646ZM342.451 84.5264H341.951V85.0264V94.0464C341.951 101.916 348.378 109.091 358.335 109.091C365.441 109.091 370.44 106.106 373.797 102.497C376.976 99.0806 378.684 95.105 379.346 92.5635C386.705 92.5634 393.28 92.5611 398.554 92.5589L403.083 92.5568C405.765 92.5556 407.906 92.5546 409.392 92.5543C404.508 108.151 385.649 126.5 351.171 126.5C328.367 126.5 313.465 119.658 304.264 110.271C295.055 100.877 291.503 88.88 291.503 78.4781C291.503 67.3869 295.603 55.2439 305.083 45.8743C314.557 36.5102 329.447 29.8751 351.104 29.8751C388.48 29.8751 410.697 53.8699 410.697 78.4873C410.697 80.5587 410.617 82.1814 410.536 83.2838C410.497 83.8273 410.457 84.2444 410.427 84.5264H342.451ZM341.951 69.8638V70.3638H342.451H359.883H360.383V69.8638V57.4959C360.383 55.526 359.679 53.0094 358.181 50.975C356.672 48.9254 354.34 47.3487 351.113 47.3487C348.109 47.3487 345.807 48.8643 344.272 50.8671C342.746 52.8591 341.951 55.3634 341.951 57.4405V69.8638ZM217.997 53.5115V53.0115H217.497H205.466V34.6526H273.196V103.325V103.825H273.696H285.735V122.174H205.466V103.825H217.497H217.997V103.325V53.5115ZM32.3929 103.825H44.4406V122.174H0.5V103.825H12.3897H12.8897V103.325V24.3025V23.8025H12.3897H0.5V5.43428H70.6982L100.713 51.1482L101.132 51.7864L101.55 51.1473L131.415 5.43428H193.192V23.8025H181.152H180.652V24.3025V103.325V103.825H181.152H193.192V122.174H112.897V103.825H124.945H125.445V103.325V52.1097V50.4328L124.527 51.8358L78.7556 121.763L32.8107 51.8351L31.8929 50.4381V52.1097V103.325V103.825H32.3929ZM238.196 31.1507L230.527 14.8143L255.22 0.701978L262.887 16.8786L238.196 31.1507Z"/>
+          </svg>
+          <small>Electronics</small>
+        </a>
+        <p style="font-size:13px;line-height:1.6;max-width:32ch">Оригинальная бытовая техника Miele с официальной гарантией, доставкой и сервисом по всей России.</p>
+        <p style="margin-top:14px"><a href="tel:+78002226666" style="color:#fff;font-weight:600">8 (800) 222-66-66</a><br><a href="mailto:miele@miele-electronics.ru">miele@miele-electronics.ru</a></p>
+      </div>
+      <div class="ftr-cols">
+        <div class="ftr-col">
+          <b>Каталог</b>
+          <a href="https://miele-electronics.ru/catalog/stiralnye-mashiny/">Стиральные машины</a>
+          <a href="https://miele-electronics.ru/catalog/sushilnye-mashiny/">Сушильные машины</a>
+          <a href="https://miele-electronics.ru/catalog/posudomoechnye-mashiny/">Посудомоечные машины</a>
+          <a href="https://miele-electronics.ru/catalog/kofemashiny/">Кофемашины</a>
+          <a href="https://miele-electronics.ru/catalog/dukhovye-shkafy/">Духовые шкафы</a>
+          <a href="https://miele-electronics.ru/catalog/vytyazhki/">Вытяжки</a>
+          <a href="https://miele-electronics.ru/catalog/pylesosy/">Пылесосы</a>
+        </div>
+        <div class="ftr-col">
+          <b>Покупателям</b>
+          <a href="https://miele-electronics.ru/delivery/">Доставка</a>
+          <a href="https://miele-electronics.ru/warranty/">Гарантия</a>
+          <a href="https://miele-electronics.ru/oplata/">Оплата</a>
+          <a href="https://miele-electronics.ru/about/">О компании</a>
+          <a href="https://miele-electronics.ru/contacts/">Контакты</a>
+        </div>
+        <div class="ftr-col">
+          <b>Шоурумы</b>
+          <a href="https://miele-electronics.ru/contacts/">Москва, ул. Краснопрудная, 15, этаж 2</a>
+          <span style="display:block;padding-top:6px;font-size:12px;color:rgba(255,255,255,.4)">Ежедневно с 10:00 до 22:00</span>
+        </div>
+      </div>
+    </div>
+    <div class="ftr-bottom">
+      <span>© Все права защищены © Miele. 2026</span>
+      <a href="https://miele-electronics.ru/privacy_policy/">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // sticky header shadow
+  const hdr = document.querySelector('.hdr');
+  addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), {passive:true});
+
+  // scroll reveal
+  const io = new IntersectionObserver(entries => {
+    for (const e of entries) if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+  }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
