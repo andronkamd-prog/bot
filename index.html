@@ -831,6 +831,13 @@
 </footer>
 
 <script>
+  // сохраняем UTM/yclid при заходе (переживает перезагрузку/паузу перед отправкой)
+  try {
+    const q0 = new URLSearchParams(location.search);
+    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid'].forEach(k => { const v = q0.get(k); if (v) localStorage.setItem('lp_' + k, v); });
+    if (document.referrer && !localStorage.getItem('lp_utm_referrer')) localStorage.setItem('lp_utm_referrer', document.referrer);
+  } catch (e) {}
+
   // sticky header shadow
   const hdr = document.querySelector('.hdr');
   addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 8), {passive:true});
@@ -861,8 +868,15 @@
     try {
       const utm = (() => {
         const q = new URLSearchParams(location.search), o = {};
-        ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(k => { const v = q.get(k); if (v) o[k] = v; });
+        const keys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid'];
+        keys.forEach(k => { const v = q.get(k); if (v) o[k] = v; });
         if (document.referrer) o.utm_referrer = document.referrer;
+        try {
+          keys.concat('utm_referrer').forEach(k => {
+            if (o[k]) localStorage.setItem('lp_' + k, o[k]);
+            else { const s = localStorage.getItem('lp_' + k); if (s) o[k] = s; }
+          });
+        } catch (e) {}
         return o;
       })();
       const r = await fetch('https://miele-electronics.ru/lp-lead.php', {
