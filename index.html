@@ -434,6 +434,23 @@
   .modal__specs .spec-row span:first-child{color:var(--muted)}
   .modal__specs .spec-row span:last-child{color:var(--ink);text-align:right;font-weight:500}
   .modal__body .btn{width:100%;text-align:center;justify-content:center}
+
+  /* ---------- catalog accordion ---------- */
+  .acc{display:flex;flex-direction:column;gap:12px}
+  .acc-tile{display:flex;align-items:center;gap:16px;width:100%;background:var(--white);border:1px solid var(--line);border-radius:12px;padding:12px 18px;cursor:pointer;text-align:left;font-family:var(--body);transition:border-color .15s,box-shadow .15s}
+  .acc-tile:hover{border-color:var(--red);box-shadow:var(--shadow)}
+  .acc-tile img{width:60px;height:60px;object-fit:contain;flex-shrink:0}
+  .acc-name{flex:1;font-family:var(--display);font-size:19px;font-weight:700;color:var(--ink)}
+  .acc-count{color:var(--muted);font-size:13px;white-space:nowrap}
+  .acc-chev{color:var(--red);font-size:22px;line-height:1;transition:transform .2s;flex-shrink:0}
+  .acc-item.open .acc-chev{transform:rotate(180deg)}
+  .acc-item.open .acc-tile{border-color:var(--red);border-bottom-left-radius:0;border-bottom-right-radius:0}
+  .acc-panel{border:1px solid var(--line);border-top:none;border-radius:0 0 12px 12px;padding:18px}
+  .acc-panel[hidden]{display:none}
+  .acc-more{display:inline-block;margin-top:16px;color:var(--red);font-weight:600;font-size:14px}
+  .btn--dl{background:var(--red);color:var(--white);border:none;font-weight:700;white-space:nowrap}
+  .btn--dl:hover{background:var(--red-hover);transform:translateY(-1px)}
+  @media (max-width:560px){.acc-name{font-size:16px}.acc-count{display:none}}
 </style>
 </head>
 <body>
@@ -503,380 +520,44 @@
   </div>
 </div>
 
-<!-- ================= CATEGORIES ================= -->
-<section class="sec" id="catalog">
+<!-- ================= WHY ================= -->
+<section class="sec sec--why" id="why">
   <div class="wrap">
     <div class="sec-head rv">
       <div>
-        <span class="kicker">Каталог</span>
-        <h2>Популярные категории</h2>
+        <span class="kicker">Почему мы</span>
+        <h2>Всё для комфортной покупки</h2>
       </div>
-      <a class="link-arrow" href="#zayavka">Все категории →</a>
+      <p style="color:var(--muted-light)">Мы позаботились о каждом этапе — от выбора до эксплуатации.</p>
     </div>
-    <div class="cats">
-      <a class="cat rv" href="#cat-stiralnye-mashiny">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/0c6/q982v8zwa2fwi5qcfux2c77tpcd4a8lg.webp" alt="Стиральные машины Miele" loading="lazy">
-        <span class="cat-name">Стиральные машины</span>
-      </a>
-      <a class="cat rv rv-d1" href="#cat-sushilnye-mashiny">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8a5/6jthlk3okgozoeim1mhh79i8s54kna19.webp" alt="Сушильные машины Miele" loading="lazy">
-        <span class="cat-name">Сушильные машины</span>
-      </a>
-      <a class="cat rv rv-d2" href="#cat-posudomoechnye-mashiny">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/7df/2sp5u3kwe78360omfj9mo7bdy9akcjji.webp" alt="Посудомоечные машины Miele" loading="lazy">
-        <span class="cat-name">Посудомоечные машины</span>
-      </a>
-      <a class="cat rv" href="#cat-kofemashiny">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c0d/6dp71n83bx3we02ydssumkmek2sz9yap.webp" alt="Кофемашины Miele" loading="lazy">
-        <span class="cat-name">Кофемашины</span>
-      </a>
-      <a class="cat rv rv-d1" href="#cat-dukhovye-shkafy">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e7a/7qsg6kw3c6nf0xcd3kqzy38mqnewe9jy.webp" alt="Духовые шкафы Miele" loading="lazy">
-        <span class="cat-name">Духовые шкафы</span>
-      </a>
-      <a class="cat rv rv-d2" href="#cat-vytyazhki">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3a1/bv6n9deq0la0ogeu1ha8gtgnxmm4jon9.webp" alt="Вытяжки Miele" loading="lazy">
-        <span class="cat-name">Вытяжки</span>
-      </a>
-      <a class="cat rv" href="#cat-kholodilniki-i-morozilniki">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6db/vp1rar7uqvadq75pgo37wuhlgi5g1a0f.webp" alt="Холодильники и морозильники Miele" loading="lazy">
-        <span class="cat-name">Холодильники</span>
-      </a>
-      <a class="cat rv rv-d1" href="#cat-pylesosy">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ca3/mrmqbvrxb7ckm35ypbbbmad2t6ixrw6p.webp" alt="Пылесосы Miele" loading="lazy">
-        <span class="cat-name">Пылесосы</span>
-      </a>
-      <a class="cat rv rv-d2" href="#cat-mikrovolnovye-pechi">
-        <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/678/q0snfyyqkwi0psvhhu8nagxumygeb5ce.webp" alt="Микроволновые печи Miele" loading="lazy">
-        <span class="cat-name">Микроволновые печи</span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= PRODUCTS ================= -->
-<section class="sec sec--prod" id="hits">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div>
-        <span class="kicker">Каталог</span>
-        <h2>Техника по категориям</h2>
+    <div class="why-grid">
+      <div class="why rv">
+        <span class="why-num">01</span>
+        <div>
+          <b>Бесплатная доставка и подъём</b>
+          <p>Доставляем технику Miele бесплатно по Москве, Санкт-Петербургу и всей России. Подъём на этаж — также бесплатно в пределах МКАД и КАД. Оплата возможна наличными при получении.</p>
+        </div>
       </div>
-      <a class="link-arrow" href="#zayavka">Весь каталог →</a>
-    </div>
-    <div class="cat-group rv" id="cat-stiralnye-mashiny">
-      <div class="cat-group__head">
-        <h3>Стиральные машины</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
+      <div class="why rv rv-d1">
+        <span class="why-num">02</span>
+        <div>
+          <b>Гарантия 2 года + сервис по всей России</b>
+          <p>На всю технику действует официальная гарантия 2 года. Обслуживание в авторизованных сервисных центрах по всей стране и быстрая поставка оригинальных запчастей.</p>
+        </div>
       </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wei865wps-chrome-edition-1633677424/" data-specs="[[&quot;Управление&quot;, &quot;Поворотный переключатель&quot;], [&quot;Кол-во программ стирки&quot;, &quot;20&quot;], [&quot;Загрузка при стирке&quot;, &quot;9 кг&quot;], [&quot;TwinDos&quot;, &quot;Да&quot;], [&quot;SteamCare&quot;, &quot;Нет&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e54/2bdyir546tld6t4pgs5zxkijnhfc88h6.webp" alt="MIELE WEI865WPS Chrome Edition фронтальная" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Стиральные машины</span>
-          <span class="prod-name">MIELE WEI865WPS Chrome Edition фронтальная</span>
-          <span class="prod-price">305 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
+      <div class="why rv">
+        <span class="why-num">03</span>
+        <div>
+          <b>Установка и настройка техники</b>
+          <p>Помогаем с профессиональной установкой техники после доставки. Все приборы проходят русификацию — меню и инструкции полностью на русском языке.</p>
         </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wsa-123-wcs/" data-specs="[[&quot;Загрузка (кг)&quot;, &quot;8&quot;], [&quot;Страна производства&quot;, &quot;Польше&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/090/2xuauvrb7cm54ez4p0oz1cwzhmsu4egj.webp" alt="Miele WSA 123 WCS" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Стиральные машины</span>
-          <span class="prod-name">Miele WSA 123 WCS</span>
-          <span class="prod-price">164 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wwi860wps-white-edition-118808115/" data-specs="[[&quot;Управление&quot;, &quot;Поворотный переключатель&quot;], [&quot;Кол-во программ стирки&quot;, &quot;20&quot;], [&quot;Загрузка при стирке&quot;, &quot;9 кг&quot;], [&quot;TwinDos&quot;, &quot;Да&quot;], [&quot;SteamCare&quot;, &quot;Нет&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/1a8/sbbro3cv5knhovwhguona5885af0ojic.webp" alt="MIELE WWI860WPS White Edition фронтальная" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Стиральные машины</span>
-          <span class="prod-name">MIELE WWI860WPS White Edition фронтальная</span>
-          <span class="prod-price">305 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
       </div>
-    </div>
-    <div class="cat-group rv" id="cat-sushilnye-mashiny">
-      <div class="cat-group__head">
-        <h3>Сушильные машины</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-twl780wp-white-edition/" data-specs="[[&quot;Управление&quot;, &quot;Поворотный переключатель&quot;], [&quot;Кол-во программ сушки&quot;, &quot;20&quot;], [&quot;Загрузка при сушке&quot;, &quot;9 кг&quot;], [&quot;FragranceDos&quot;, &quot;Да&quot;], [&quot;SteamFinish&quot;, &quot;Да&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/281/lr5fjk65urh1a5hx1m26sqtfbcw5atpk.webp" alt="MIELE TWL780WP White Edition" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Сушильные машины</span>
-          <span class="prod-name">MIELE TWL780WP White Edition</span>
-          <span class="prod-price">299 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
+      <div class="why rv rv-d1">
+        <span class="why-num">04</span>
+        <div>
+          <b>Официальный магазин Miele</b>
+          <p>Продаём только оригинальную технику Miele с заводской гарантией и полным пакетом документов — подлинность каждого прибора подтверждена.</p>
         </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tq-1000-wp-nova-edition/" data-specs="[[&quot;Загрузка (кг)&quot;, &quot;9&quot;], [&quot;Страна производства&quot;, &quot;Чехия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/da5/7bcafqm9jmmpwg4jjm3tun0u6mw4je2x.webp" alt="Miele TQ 1000 WP Nova Edition" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Сушильные машины</span>
-          <span class="prod-name">Miele TQ 1000 WP Nova Edition</span>
-          <span class="prod-price">299 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tel785wp-chrome-edition-346890753/" data-specs="[[&quot;Управление&quot;, &quot;Поворотный переключатель&quot;], [&quot;Кол-во программ сушки&quot;, &quot;20&quot;], [&quot;Загрузка при сушке&quot;, &quot;9 кг&quot;], [&quot;FragranceDos&quot;, &quot;Да&quot;], [&quot;SteamFinish&quot;, &quot;Да&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3e2/og95r13hdocv48p88hby7twhduepftqr.webp" alt="MIELE TEL785WP Chrome Edition" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Сушильные машины</span>
-          <span class="prod-name">MIELE TEL785WP Chrome Edition</span>
-          <span class="prod-price">299 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-posudomoechnye-mashiny">
-      <div class="cat-group__head">
-        <h3>Посудомоечные машины</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g5481-scvi-45-sm/" data-specs="[[&quot;Кол-во программ&quot;, &quot;5&quot;], [&quot;Поддон 3D MultiFlex&quot;, &quot;Нет&quot;], [&quot;QuickPowerWash&quot;, &quot;Нет&quot;], [&quot;Knock2open&quot;, &quot;Нет&quot;], [&quot;Сенсорный дисплей&quot;, &quot;Нет&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3e1/faex3jsk32x4z7kf0wylls3x3ajfokk4.webp" alt="MIELE G5481 SCVi 45 см" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Посудомоечные машины</span>
-          <span class="prod-name">MIELE G5481 SCVi 45 см</span>
-          <span class="prod-price">156 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemaya-posudomoechnaya-mashina-miele-g-5050-scvi/" data-specs="[]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/fb5/py2v7tgfk6ozvdzbin2zikr0fzcrwcd7.webp" alt="Miele G 5050 SCVi" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Посудомоечные машины</span>
-          <span class="prod-name">Miele G 5050 SCVi</span>
-          <span class="prod-price">153 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g7673-scvi/" data-specs="[]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/442/b3efaium5kjtva38ckvlzg2zijpso996.webp" alt="Посудомоечная машина Miele G7673 SCVi" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Посудомоечные машины</span>
-          <span class="prod-name">Посудомоечная машина Miele G7673 SCVi</span>
-          <span class="prod-price">278 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-kofemashiny">
-      <div class="cat-group__head">
-        <h3>Кофемашины</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-zernovaya-cva7440-obsw/" data-specs="[[&quot;Размер ниши (Ш х В)&quot;, &quot;560-568 х 450-452 мм&quot;], [&quot;Подача воды&quot;, &quot;Заливка вручную&quot;], [&quot;Страна производства&quot;, &quot;Швейцария&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6e5/u10hkabjns49rbt8a9qtlsdtsst00ppb.webp" alt="зерновая Miele CVA7440 OBSW" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Кофемашины</span>
-          <span class="prod-name">зерновая Miele CVA7440 OBSW</span>
-          <span class="prod-price">339 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm6360-obcm/" data-specs="[[&quot;Подача воды&quot;, &quot;Заливка вручную&quot;], [&quot;Страна производства&quot;, &quot;Швейцария&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/2bb/gsy90338y2krym7wb7o0o2g3884imjqm.webp" alt="Miele CM6360 OBCM" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Кофемашины</span>
-          <span class="prod-name">Miele CM6360 OBCM</span>
-          <span class="prod-price">164 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm5510-ropf/" data-specs="[[&quot;Подача воды&quot;, &quot;Заливка вручную&quot;], [&quot;Страна производства&quot;, &quot;Швейцария&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/aab/qjqxurg9eg20etajqx60ryayo8ghntwd.webp" alt="Miele CM5510 ROPF" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Кофемашины</span>
-          <span class="prod-name">Miele CM5510 ROPF</span>
-          <span class="prod-price">123 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-dukhovye-shkafy">
-      <div class="cat-group__head">
-        <h3>Духовые шкафы</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-h7464bp-obsw/" data-specs="[[&quot;Управление&quot;, &quot;Сенсорные кнопки&quot;], [&quot;Размер ниши (Ш х В)&quot;, &quot;560-568 х 590-595 мм&quot;], [&quot;Объем духового шкафа (л)&quot;, &quot;76&quot;], [&quot;WiFi / Miele@Home&quot;, &quot;Да&quot;], [&quot;Уровни противней&quot;, &quot;5&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/eb7/im1u2pzz8vxd9zznlzdtxrn2bw0qffz4.webp" alt="Miele H7464BP OBSW с пароваркой 60 см" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Духовые шкафы</span>
-          <span class="prod-name">Miele H7464BP OBSW с пароваркой 60 см</span>
-          <span class="prod-price">309 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-s-svch-h7840bmx-obsw/" data-specs="[[&quot;Управление&quot;, &quot;Сенсорное управление MTouch&quot;], [&quot;Размер ниши (Ш х В)&quot;, &quot;560-568 х 450-452 мм&quot;], [&quot;Объем духового шкафа (л)&quot;, &quot;38&quot;], [&quot;WiFi / Miele@Home&quot;, &quot;Да&quot;], [&quot;Уровни противней&quot;, &quot;3&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38f/t04i4nng31vqo4191fs9qpty1lpc5ixg.webp" alt="Miele H7840BMX OBSW с СВЧ" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Духовые шкафы</span>
-          <span class="prod-name">Miele H7840BMX OBSW с СВЧ</span>
-          <span class="prod-price">389 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-miele-h2465b-obsw/" data-specs="[]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8db/478yp65u96b15cjwdqbt2idtdg03q7bh.webp" alt="Miele H2465B OBSW чёрный обсидиан" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Духовые шкафы</span>
-          <span class="prod-name">Miele H2465B OBSW чёрный обсидиан</span>
-          <span class="prod-price">133 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-vytyazhki">
-      <div class="cat-group__head">
-        <h3>Вытяжки</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-miele-das4620-chernyj-obsidian/" data-specs="[]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38a/q2ipsruhdolnxd5t1gu48mqvl5kbyq0f.webp" alt="Miele DAS4620 чёрный обсидиан матовый" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Вытяжки</span>
-          <span class="prod-name">Miele DAS4620 чёрный обсидиан матовый</span>
-          <span class="prod-price">119 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-das4630/" data-specs="[[&quot;Ширина (см)&quot;, &quot;60&quot;], [&quot;Производительность (м3/час)&quot;, &quot;7203&quot;], [&quot;Скоростные режимы&quot;, &quot;3 + 2 интенсивные&quot;], [&quot;Режим рециркуляции&quot;, &quot;Да&quot;], [&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/218/m6mgnaz8suogdbk00fp06vucsztb8175.webp" alt="Miele DAS4630" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Вытяжки</span>
-          <span class="prod-name">Miele DAS4630</span>
-          <span class="prod-price">115 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-da6698w-clst/" data-specs="[[&quot;WiFi / Miele@Home&quot;, &quot;Да&quot;], [&quot;Ширина (см)&quot;, &quot;90&quot;], [&quot;Производительность (м3/час)&quot;, &quot;6403&quot;], [&quot;Скоростные режимы&quot;, &quot;3 + интенсивный&quot;], [&quot;Режим рециркуляции&quot;, &quot;Да&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff1/lmus7wxqw43wcwc4pvgnloz9f2lfps56.webp" alt="Miele DA6698W CLST" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Вытяжки</span>
-          <span class="prod-name">Miele DA6698W CLST</span>
-          <span class="prod-price">299 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-kholodilniki-i-morozilniki">
-      <div class="cat-group__head">
-        <h3>Холодильники</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-kholodilnik-miele-kfn-7744-c/" data-specs="[[&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3b0/0iu0zfaqwkc1sk0d5k3j29wodep7kwfu.webp" alt="Miele KFN 7744 C" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Холодильники</span>
-          <span class="prod-name">Miele KFN 7744 C</span>
-          <span class="prod-price">259 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-morozilnik-miele-fns-7774-d/" data-specs="[[&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/9d2/wrdx83w4yviy9xy903ubyl55xid4mj5s.webp" alt="Встраиваемый морозильник Miele FNS 7774 D" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Холодильники</span>
-          <span class="prod-name">Встраиваемый морозильник Miele FNS 7774 D</span>
-          <span class="prod-price">362 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kholodilnik-miele-kfn-4797-cd-ws/" data-specs="[[&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ba4/v8s3n7fnbgqyz38wkrp3nzjv4r49ylmo.webp" alt="Miele KFN 4797 CD WS" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Холодильники</span>
-          <span class="prod-name">Miele KFN 4797 CD WS</span>
-          <span class="prod-price">265 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-pylesosy">
-      <div class="cat-group__head">
-        <h3>Пылесосы</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgea3-complete-c3-cat-dog-ezhevichnyy-krasnyy-2058280267/" data-specs="[[&quot;Объём пылесборника&quot;, &quot;4.5 л&quot;], [&quot;Мощность (Вт)&quot;, &quot;2000&quot;], [&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff7/zj5s3ocwo6tnwi0mx9l9wdy2uy2anmx7.webp" alt="Miele SGEA3 Complete C3 Cat&amp;Dog ежевичный красный" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Пылесосы</span>
-          <span class="prod-name">Miele SGEA3 Complete C3 Cat&amp;Dog ежевичный красный</span>
-          <span class="prod-price">59 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sbad3-classic-c1-belyy-lotos-9666980/" data-specs="[[&quot;Объём пылесборника&quot;, &quot;4.5 л&quot;], [&quot;Мощность (Вт)&quot;, &quot;1400&quot;], [&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e50/ohax2gcre26kw7553rp31htksessznxy.webp" alt="Miele SBAD3 Classic C1 белый лотос" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Пылесосы</span>
-          <span class="prod-name">Miele SBAD3 Classic C1 белый лотос</span>
-          <span class="prod-price">32 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgsa3-complete-c3-parquet-celebration-chyernyy-obsidian-805462140/" data-specs="[[&quot;Объём пылесборника&quot;, &quot;4.5 л&quot;], [&quot;Мощность (Вт)&quot;, &quot;2000&quot;], [&quot;Страна производства&quot;, &quot;Германия&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/83d/04p8rzy63qme2ugc0jrc82iucqki31mc.webp" alt="Miele SGSA3 Complete C3 Parquet Celebration чёрный обсидиан" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Пылесосы</span>
-          <span class="prod-name">Miele SGSA3 Complete C3 Parquet Celebration чёрный обсидиан</span>
-          <span class="prod-price">59 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    <div class="cat-group rv" id="cat-mikrovolnovye-pechi">
-      <div class="cat-group__head">
-        <h3>Микроволновые печи</h3>
-        <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
-      </div>
-      <div class="prods">
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-obsw/" data-specs="[[&quot;Размер ниши (Ш х В)&quot;, &quot;562-568 х 450-452 мм&quot;], [&quot;Объем (л)&quot;, &quot;46&quot;], [&quot;Диаметр тарелок&quot;, &quot;до 40 см&quot;], [&quot;Кол-во ступеней мощности&quot;, &quot;7&quot;], [&quot;Таймер&quot;, &quot;Да&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/10b/ivb9nhi1i16lgjgefkwfp1lh7xphnhr2.webp" alt="Miele M7244TC OBSW" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Микроволновые печи</span>
-          <span class="prod-name">Miele M7244TC OBSW</span>
-          <span class="prod-price">179 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m2230sc-obsw/" data-specs="[[&quot;Размер ниши (Ш х В)&quot;, &quot;562-568 х 360-362 мм&quot;], [&quot;Кол-во программ&quot;, &quot;11&quot;], [&quot;Объем (л)&quot;, &quot;17&quot;], [&quot;Диаметр тарелок&quot;, &quot;до 27 см&quot;], [&quot;Кол-во ступеней мощности&quot;, &quot;7&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/4ca/8wk95q01huw72dxdmgg7x33035q9knxl.webp" alt="Miele M2230SC OBSW черный обсидиан" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Микроволновые печи</span>
-          <span class="prod-name">Miele M2230SC OBSW черный обсидиан</span>
-          <span class="prod-price">129 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
-      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-grgr/" data-specs="[[&quot;Размер ниши (Ш х В)&quot;, &quot;562-568 х 450-452 мм&quot;], [&quot;Объем (л)&quot;, &quot;46&quot;], [&quot;Диаметр тарелок&quot;, &quot;до 40 см&quot;], [&quot;Кол-во ступеней мощности&quot;, &quot;7&quot;], [&quot;Таймер&quot;, &quot;Да&quot;]]">
-        <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/137/8m8oym6fxubkj0i0y4j8qfl8pg8li73q.webp" alt="Miele M7244TC GRGR" loading="lazy"></div>
-        <div class="prod-body">
-          <span class="prod-cat">Микроволновые печи</span>
-          <span class="prod-name">Miele M7244TC GRGR</span>
-          <span class="prod-price">185 000 ₽</span>
-          <span class="prod-go">Подробнее →</span>
-        </div>
-      </a>
       </div>
     </div>
   </div>
@@ -918,43 +599,618 @@
   </div>
 </section>
 
-<!-- ================= WHY ================= -->
-<section class="sec sec--why" id="why">
+<!-- ================= CATALOG (аккордеон) ================= -->
+<section class="sec" id="catalog">
   <div class="wrap">
     <div class="sec-head rv">
       <div>
-        <span class="kicker">Почему мы</span>
-        <h2>Всё для комфортной покупки</h2>
+        <span class="kicker">Каталог</span>
+        <h2>Категории товаров</h2>
       </div>
-      <p style="color:var(--muted-light)">Мы позаботились о каждом этапе — от выбора до эксплуатации.</p>
+      <a class="btn btn--dl rv" href="catalog.pdf" download>⭳ Скачать полный каталог (PDF)</a>
     </div>
-    <div class="why-grid">
-      <div class="why rv">
-        <span class="why-num">01</span>
-        <div>
-          <b>Бесплатная доставка и подъём</b>
-          <p>Доставляем технику Miele бесплатно по Москве, Санкт-Петербургу и всей России. Подъём на этаж — также бесплатно в пределах МКАД и КАД. Оплата возможна наличными при получении.</p>
+    <div class="acc rv">
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-stiralnye-mashiny">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/0c6/q982v8zwa2fwi5qcfux2c77tpcd4a8lg.webp" alt="Стиральные машины" loading="lazy">
+          <span class="acc-name">Стиральные машины</span>
+          <span class="acc-count">15 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-stiralnye-mashiny" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wei865wps-chrome-edition-1633677424/" data-specs="[[&quot;Тип загрузки&quot;, &quot;фронтальная&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Отжим, об/мин&quot;, &quot;1600&quot;], [&quot;Программ&quot;, &quot;24&quot;], [&quot;Страна&quot;, &quot;Германия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e54/2bdyir546tld6t4pgs5zxkijnhfc88h6.webp" alt="MIELE WEI865WPS Chrome Edition фронтальная" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Стиральные машины</span>
+                <span class="prod-name">MIELE WEI865WPS Chrome Edition фронтальная</span>
+                <span class="prod-price">305 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wsa-123-wcs/" data-specs="[[&quot;Тип загрузки&quot;, &quot;фронтальная&quot;], [&quot;Загрузка&quot;, &quot;8&quot;], [&quot;Отжим, об/мин&quot;, &quot;1400&quot;], [&quot;Программ&quot;, &quot;12&quot;], [&quot;Страна&quot;, &quot;Польша&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/090/2xuauvrb7cm54ez4p0oz1cwzhmsu4egj.webp" alt="Miele WSA 123 WCS" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Стиральные машины</span>
+                <span class="prod-name">Miele WSA 123 WCS</span>
+                <span class="prod-price">164 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wwi860wps-white-edition-118808115/" data-specs="[[&quot;Тип загрузки&quot;, &quot;фронтальная&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Отжим, об/мин&quot;, &quot;1600&quot;], [&quot;Программ&quot;, &quot;24&quot;], [&quot;Страна&quot;, &quot;Германия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/1a8/sbbro3cv5knhovwhguona5885af0ojic.webp" alt="MIELE WWI860WPS White Edition фронтальная" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Стиральные машины</span>
+                <span class="prod-name">MIELE WWI860WPS White Edition фронтальная</span>
+                <span class="prod-price">305 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wsd-383-wcs/" data-specs="[[&quot;Тип загрузки&quot;, &quot;фронтальная&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Отжим, об/мин&quot;, &quot;1400&quot;], [&quot;Программ&quot;, &quot;11&quot;], [&quot;Страна&quot;, &quot;Польша&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/7f1/vuu5o9fnr236jb83km8uyon85jmpu25o.webp" alt="Miele WSD 383 WCS" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Стиральные машины</span>
+                <span class="prod-name">Miele WSD 383 WCS</span>
+                <span class="prod-price">148 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-weg-895-wcs-chrome-edition-ru/" data-specs="[[&quot;Тип загрузки&quot;, &quot;фронтальная&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Отжим, об/мин&quot;, &quot;1400&quot;], [&quot;Программ&quot;, &quot;11&quot;], [&quot;Страна&quot;, &quot;Польша&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c78/337a42q2s8nzsh0cem8ejikjvpv6gt1h.webp" alt="Miele WEG 895 WCS Chrome Edition RU" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Стиральные машины</span>
+                <span class="prod-name">Miele WEG 895 WCS Chrome Edition RU</span>
+                <span class="prod-price">225 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wq-1000-wps-nova-edition/" data-specs="[[&quot;Тип загрузки&quot;, &quot;фронтальная&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Отжим, об/мин&quot;, &quot;1600&quot;], [&quot;Программ&quot;, &quot;22&quot;], [&quot;Страна&quot;, &quot;Германия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/54c/o9l7256kdtpe64k8pdq7jtsn6b4u6wmu.webp" alt="Miele WQ 1000 WPS Nova Edition" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Стиральные машины</span>
+                <span class="prod-name">Miele WQ 1000 WPS Nova Edition</span>
+                <span class="prod-price">305 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
-      <div class="why rv rv-d1">
-        <span class="why-num">02</span>
-        <div>
-          <b>Гарантия 2 года + сервис по всей России</b>
-          <p>На всю технику действует официальная гарантия 2 года. Обслуживание в авторизованных сервисных центрах по всей стране и быстрая поставка оригинальных запчастей.</p>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-sushilnye-mashiny">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8a5/6jthlk3okgozoeim1mhh79i8s54kna19.webp" alt="Сушильные машины" loading="lazy">
+          <span class="acc-name">Сушильные машины</span>
+          <span class="acc-count">12 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-sushilnye-mashiny" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-twl780wp-white-edition/" data-specs="[[&quot;Загрузка&quot;, &quot;9 кг&quot;], [&quot;Программ&quot;, &quot;20&quot;], [&quot;Страна&quot;, &quot;Чехия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/281/lr5fjk65urh1a5hx1m26sqtfbcw5atpk.webp" alt="MIELE TWL780WP White Edition" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Сушильные машины</span>
+                <span class="prod-name">MIELE TWL780WP White Edition</span>
+                <span class="prod-price">299 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tq-1000-wp-nova-edition/" data-specs="[[&quot;Тип сушки&quot;, &quot;конденсационная с тепловой помпой&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Программ&quot;, &quot;22&quot;], [&quot;Тип загрузки&quot;, &quot;Фронтальная&quot;], [&quot;Страна&quot;, &quot;Чехия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/da5/7bcafqm9jmmpwg4jjm3tun0u6mw4je2x.webp" alt="Miele TQ 1000 WP Nova Edition" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Сушильные машины</span>
+                <span class="prod-name">Miele TQ 1000 WP Nova Edition</span>
+                <span class="prod-price">299 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tel785wp-chrome-edition-346890753/" data-specs="[[&quot;Тип сушки&quot;, &quot;конденсационная с тепловой помпой&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Программ&quot;, &quot;20&quot;], [&quot;Тип загрузки&quot;, &quot;Фронтальная&quot;], [&quot;Страна&quot;, &quot;Чехия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3e2/og95r13hdocv48p88hby7twhduepftqr.webp" alt="MIELE TEL785WP Chrome Edition" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Сушильные машины</span>
+                <span class="prod-name">MIELE TEL785WP Chrome Edition</span>
+                <span class="prod-price">299 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-twa-520-wp/" data-specs="[[&quot;Тип сушки&quot;, &quot;конденсационная с тепловой помпой&quot;], [&quot;Загрузка&quot;, &quot;8&quot;], [&quot;Программ&quot;, &quot;12&quot;], [&quot;Тип загрузки&quot;, &quot;Фронтальная&quot;], [&quot;Страна&quot;, &quot;Чехия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c82/ehvt4fr82pfiuqp4nbw39y7rz31zpiam.webp" alt="Miele TWA 520 WP" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Сушильные машины</span>
+                <span class="prod-name">Miele TWA 520 WP</span>
+                <span class="prod-price">179 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-teh-795-wp/" data-specs="[[&quot;Тип сушки&quot;, &quot;конденсационная с тепловой помпой&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Программ&quot;, &quot;10&quot;], [&quot;Тип загрузки&quot;, &quot;Фронтальная&quot;], [&quot;Страна&quot;, &quot;Чехия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ce4/q235iruejbrgc60xubz2cywnj9negq1o.webp" alt="Miele TEH 795 WP" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Сушильные машины</span>
+                <span class="prod-name">Miele TEH 795 WP</span>
+                <span class="prod-price">220 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-twh-780-wp/" data-specs="[[&quot;Тип сушки&quot;, &quot;конденсационная с тепловой помпой&quot;], [&quot;Загрузка&quot;, &quot;9&quot;], [&quot;Программ&quot;, &quot;10&quot;], [&quot;Тип загрузки&quot;, &quot;Фронтальная&quot;], [&quot;Страна&quot;, &quot;Чехия&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6b4/0998kyh85bs69nl4rqb77makahdy0eb2.webp" alt="Miele TWH 780 WP" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Сушильные машины</span>
+                <span class="prod-name">Miele TWH 780 WP</span>
+                <span class="prod-price">220 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
-      <div class="why rv">
-        <span class="why-num">03</span>
-        <div>
-          <b>Установка и настройка техники</b>
-          <p>Помогаем с профессиональной установкой техники после доставки. Все приборы проходят русификацию — меню и инструкции полностью на русском языке.</p>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-posudomoechnye-mashiny">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/7df/2sp5u3kwe78360omfj9mo7bdy9akcjji.webp" alt="Посудомоечные машины" loading="lazy">
+          <span class="acc-name">Посудомоечные машины</span>
+          <span class="acc-count">20 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-posudomoechnye-mashiny" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g5481-scvi-45-sm/" data-specs="[[&quot;Тип&quot;, &quot;полностью встраиваемая&quot;], [&quot;Комплектов&quot;, &quot;9&quot;], [&quot;Программ&quot;, &quot;5&quot;], [&quot;Сушка&quot;, &quot;конденсационная&quot;], [&quot;Класс энергоэфф.&quot;, &quot;А+++ - 11% (новое обозначение C)&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3e1/faex3jsk32x4z7kf0wylls3x3ajfokk4.webp" alt="MIELE G5481 SCVi 45 см" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Посудомоечные машины</span>
+                <span class="prod-name">MIELE G5481 SCVi 45 см</span>
+                <span class="prod-price">156 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemaya-posudomoechnaya-mashina-miele-g-5050-scvi/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/fb5/py2v7tgfk6ozvdzbin2zikr0fzcrwcd7.webp" alt="Miele G 5050 SCVi" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Посудомоечные машины</span>
+                <span class="prod-name">Miele G 5050 SCVi</span>
+                <span class="prod-price">153 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g7673-scvi/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/442/b3efaium5kjtva38ckvlzg2zijpso996.webp" alt="Посудомоечная машина Miele G7673 SCVi" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Посудомоечные машины</span>
+                <span class="prod-name">Посудомоечная машина Miele G7673 SCVi</span>
+                <span class="prod-price">278 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemaya-posudomoechnaya-mashina-miele-g-7980-scvi-autodos-k2o/" data-specs="[[&quot;Тип&quot;, &quot;полностью встраиваемая&quot;], [&quot;Комплектов&quot;, &quot;14&quot;], [&quot;Программ&quot;, &quot;11&quot;], [&quot;Сушка&quot;, &quot;конденсационная&quot;], [&quot;Класс энергоэфф.&quot;, &quot;G (старое A)&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38f/pr41fejy8w8fchlwyctawhf3flfcaici.webp" alt="Miele G 7980 SCVi AutoDos K2O" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Посудомоечные машины</span>
+                <span class="prod-name">Miele G 7980 SCVi AutoDos K2O</span>
+                <span class="prod-price">359 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g5265-scvi-xxl-60-sm/" data-specs="[[&quot;Тип&quot;, &quot;полностью встраиваемая&quot;], [&quot;Комплектов&quot;, &quot;14&quot;], [&quot;Программ&quot;, &quot;5&quot;], [&quot;Сушка&quot;, &quot;конденсационная&quot;], [&quot;Класс энергоэфф.&quot;, &quot;А+++ - 11% (новое обозначение C)&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/5e1/yvdw2hd38c5guvy16xcsbafuplctw038.webp" alt="MIELE G5265 SCVi XXL 60 см" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Посудомоечные машины</span>
+                <span class="prod-name">MIELE G5265 SCVi XXL 60 см</span>
+                <span class="prod-price">205 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g7960-scvi-60-sm/" data-specs="[[&quot;Тип&quot;, &quot;полностью встраиваемая&quot;], [&quot;Комплектов&quot;, &quot;14&quot;], [&quot;Программ&quot;, &quot;12&quot;], [&quot;Сушка&quot;, &quot;конденсационная&quot;], [&quot;Класс энергоэфф.&quot;, &quot;А+++ - 11% (новое обозначение C)&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/b33/vueer49hg7lztqsvhzqhwjy4zrqkhnxz.webp" alt="MIELE G7960 SCVi 60 см сенсорная" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Посудомоечные машины</span>
+                <span class="prod-name">MIELE G7960 SCVi 60 см сенсорная</span>
+                <span class="prod-price">475 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
-      <div class="why rv rv-d1">
-        <span class="why-num">04</span>
-        <div>
-          <b>Официальный магазин Miele</b>
-          <p>Продаём только оригинальную технику Miele с заводской гарантией и полным пакетом документов — подлинность каждого прибора подтверждена.</p>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-kofemashiny">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c0d/6dp71n83bx3we02ydssumkmek2sz9yap.webp" alt="Кофемашины" loading="lazy">
+          <span class="acc-name">Кофемашины</span>
+          <span class="acc-count">20 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-kofemashiny" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-zernovaya-cva7440-obsw/" data-specs="[[&quot;Страна&quot;, &quot;Швейцария&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6e5/u10hkabjns49rbt8a9qtlsdtsst00ppb.webp" alt="зерновая Miele CVA7440 OBSW" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Кофемашины</span>
+                <span class="prod-name">зерновая Miele CVA7440 OBSW</span>
+                <span class="prod-price">339 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm6360-obcm/" data-specs="[[&quot;Тип&quot;, &quot;отдельностоящая&quot;], [&quot;Ёмкость воды, л&quot;, &quot;1.8&quot;], [&quot;Контейнер зёрен, г&quot;, &quot;300&quot;], [&quot;Порция, мл&quot;, &quot;20-300&quot;], [&quot;Страна&quot;, &quot;Швейцария&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/2bb/gsy90338y2krym7wb7o0o2g3884imjqm.webp" alt="Miele CM6360 OBCM" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Кофемашины</span>
+                <span class="prod-name">Miele CM6360 OBCM</span>
+                <span class="prod-price">164 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm5510-ropf/" data-specs="[[&quot;Страна&quot;, &quot;Швейцария&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/aab/qjqxurg9eg20etajqx60ryayo8ghntwd.webp" alt="Miele CM5510 ROPF" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Кофемашины</span>
+                <span class="prod-name">Miele CM5510 ROPF</span>
+                <span class="prod-price">123 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm5310-obsw/" data-specs="[[&quot;Страна&quot;, &quot;Швейцария&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/669/x1jqbuumw21nnw4twozzoo2rcuad662x.webp" alt="Miele CM5310 OBSW" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Кофемашины</span>
+                <span class="prod-name">Miele CM5310 OBSW</span>
+                <span class="prod-price">123 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-zernovaya-cva7845-obsw/" data-specs="[[&quot;Тип&quot;, &quot;встраиваемая&quot;], [&quot;Ёмкость воды, л&quot;, &quot;2.7&quot;], [&quot;Контейнер зёрен, г&quot;, &quot;300/150/150&quot;], [&quot;Порция, мл&quot;, &quot;20-300&quot;], [&quot;Страна&quot;, &quot;Швейцария&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/fd3/0bbwi3rxp7610lcwa2je36khifswmqg7.webp" alt="зерновая Miele CVA7845 OBSW" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Кофемашины</span>
+                <span class="prod-name">зерновая Miele CVA7845 OBSW</span>
+                <span class="prod-price">469 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm6560-grpf/" data-specs="[[&quot;Страна&quot;, &quot;Швейцария&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/7d6/bz8m5pvj8m3f07fotmnsfxu4lfbf1f1r.webp" alt="Miele CM6560 GRPF Milkperfection" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Кофемашины</span>
+                <span class="prod-name">Miele CM6560 GRPF Milkperfection</span>
+                <span class="prod-price">159 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-dukhovye-shkafy">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e7a/7qsg6kw3c6nf0xcd3kqzy38mqnewe9jy.webp" alt="Духовые шкафы" loading="lazy">
+          <span class="acc-name">Духовые шкафы</span>
+          <span class="acc-count">20 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-dukhovye-shkafy" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-h7464bp-obsw/" data-specs="[[&quot;Объём, л&quot;, &quot;76&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/eb7/im1u2pzz8vxd9zznlzdtxrn2bw0qffz4.webp" alt="Miele H7464BP OBSW с пароваркой 60 см" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Духовые шкафы</span>
+                <span class="prod-name">Miele H7464BP OBSW с пароваркой 60 см</span>
+                <span class="prod-price">309 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-s-svch-h7840bmx-obsw/" data-specs="[[&quot;Тип&quot;, &quot;компактный высотой 45 см&quot;], [&quot;Объём, л&quot;, &quot;38&quot;], [&quot;Уровней&quot;, &quot;3&quot;], [&quot;Режимов&quot;, &quot;14&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38f/t04i4nng31vqo4191fs9qpty1lpc5ixg.webp" alt="Miele H7840BMX OBSW с СВЧ" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Духовые шкафы</span>
+                <span class="prod-name">Miele H7840BMX OBSW с СВЧ</span>
+                <span class="prod-price">389 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-miele-h2465b-obsw/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8db/478yp65u96b15cjwdqbt2idtdg03q7bh.webp" alt="Miele H2465B OBSW чёрный обсидиан" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Духовые шкафы</span>
+                <span class="prod-name">Miele H2465B OBSW чёрный обсидиан</span>
+                <span class="prod-price">133 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-h7860bpx-obsw/" data-specs="[[&quot;Тип&quot;, &quot;полноразмерный шириной 60 см&quot;], [&quot;Объём, л&quot;, &quot;76&quot;], [&quot;Уровней&quot;, &quot;5&quot;], [&quot;Режимов&quot;, &quot;12&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8ea/ev9zaeh9fnr8322467z936cymai5krf9.webp" alt="Miele H7860BPX OBSW с пароваркой 60 см" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Духовые шкафы</span>
+                <span class="prod-name">Miele H7860BPX OBSW с пароваркой 60 см</span>
+                <span class="prod-price">474 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-miele-h7260bp-obsw/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/2eb/qgngvux6enqf26rkamk394zbvyn5svj6.webp" alt="Miele H 7260 BP OBSW 60 см" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Духовые шкафы</span>
+                <span class="prod-name">Miele H 7260 BP OBSW 60 см</span>
+                <span class="prod-price">215 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kombinirovannyy-dukhovoy-shkaf-dialogoven-do7860-grgr/" data-specs="[[&quot;Тип&quot;, &quot;полноразмерный шириной 60 см&quot;], [&quot;Объём, л&quot;, &quot;51&quot;], [&quot;Уровней&quot;, &quot;4&quot;], [&quot;Режимов&quot;, &quot;12&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/9d1/usigm205lqblpxgbrg8bg3jvulnf5ar2.webp" alt="Miele DialogOven DO7860 GRGR 60 см" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Духовые шкафы</span>
+                <span class="prod-name">Miele DialogOven DO7860 GRGR 60 см</span>
+                <span class="prod-price">1 150 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-vytyazhki">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3a1/bv6n9deq0la0ogeu1ha8gtgnxmm4jon9.webp" alt="Вытяжки" loading="lazy">
+          <span class="acc-name">Вытяжки</span>
+          <span class="acc-count">20 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-vytyazhki" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-miele-das4620-chernyj-obsidian/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38a/q2ipsruhdolnxd5t1gu48mqvl5kbyq0f.webp" alt="Miele DAS4620 чёрный обсидиан матовый" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Вытяжки</span>
+                <span class="prod-name">Miele DAS4620 чёрный обсидиан матовый</span>
+                <span class="prod-price">119 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-das4630/" data-specs="[[&quot;Производит., м³/ч&quot;, &quot;7203&quot;], [&quot;Скор. режимов&quot;, &quot;3 + 2 интенсивные&quot;], [&quot;Рециркуляция&quot;, &quot;Да&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/218/m6mgnaz8suogdbk00fp06vucsztb8175.webp" alt="Miele DAS4630" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Вытяжки</span>
+                <span class="prod-name">Miele DAS4630</span>
+                <span class="prod-price">115 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-da6698w-clst/" data-specs="[[&quot;Тип&quot;, &quot;настенная&quot;], [&quot;Ширина, см&quot;, &quot;89.8&quot;], [&quot;Производит., м³/ч&quot;, &quot;6403&quot;], [&quot;Скор. режимов&quot;, &quot;3 + интенсивный&quot;], [&quot;Рециркуляция&quot;, &quot;Есть&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff1/lmus7wxqw43wcwc4pvgnloz9f2lfps56.webp" alt="Miele DA6698W CLST" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Вытяжки</span>
+                <span class="prod-name">Miele DA6698W CLST</span>
+                <span class="prod-price">299 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-miele-das2622-nerzh/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/618/xzdjbeyw6n5tjkrhtmm4v9iwf0zit7v7.webp" alt="Miele DAS2622 нержавеющая сталь" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Вытяжки</span>
+                <span class="prod-name">Miele DAS2622 нержавеющая сталь</span>
+                <span class="prod-price">79 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-miele-da2390-nerzh/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/54e/8g06ap3ub4mzp3wk2hes0yi7tvepazwk.webp" alt="Miele DA2390 нержавеющая сталь" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Вытяжки</span>
+                <span class="prod-name">Miele DA2390 нержавеющая сталь</span>
+                <span class="prod-price">176 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-das8930/" data-specs="[[&quot;Тип&quot;, &quot;встраиваемая в шкаф&quot;], [&quot;Ширина, см&quot;, &quot;86.1&quot;], [&quot;Производит., м³/ч&quot;, &quot;8803&quot;], [&quot;Скор. режимов&quot;, &quot;3 + 2 интенсивные&quot;], [&quot;Рециркуляция&quot;, &quot;Есть&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/d8c/v73fknj4bu5qp8n35r864c981z14a49k.webp" alt="Miele DAS8930" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Вытяжки</span>
+                <span class="prod-name">Miele DAS8930</span>
+                <span class="prod-price">199 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-kholodilniki-i-morozilniki">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6db/vp1rar7uqvadq75pgo37wuhlgi5g1a0f.webp" alt="Холодильники" loading="lazy">
+          <span class="acc-name">Холодильники</span>
+          <span class="acc-count">20 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-kholodilniki-i-morozilniki" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-kholodilnik-miele-kfn-7744-c/" data-specs="[[&quot;Тип&quot;, &quot;холодильник с морозильником&quot;], [&quot;Объём, л&quot;, &quot;315&quot;], [&quot;Класс энергоэфф.&quot;, &quot;C, D (старый A++)&quot;], [&quot;Темп. зон&quot;, &quot;3&quot;], [&quot;Ширина, см&quot;, &quot;55.9&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3b0/0iu0zfaqwkc1sk0d5k3j29wodep7kwfu.webp" alt="Miele KFN 7744 C" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Холодильники</span>
+                <span class="prod-name">Miele KFN 7744 C</span>
+                <span class="prod-price">259 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-morozilnik-miele-fns-7774-d/" data-specs="[[&quot;Тип&quot;, &quot;морозильник&quot;], [&quot;Объём, л&quot;, &quot;213&quot;], [&quot;Класс энергоэфф.&quot;, &quot;C, D (старый A++)&quot;], [&quot;Темп. зон&quot;, &quot;1&quot;], [&quot;Ширина, см&quot;, &quot;55.9&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/9d2/wrdx83w4yviy9xy903ubyl55xid4mj5s.webp" alt="Встраиваемый морозильник Miele FNS 7774 D" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Холодильники</span>
+                <span class="prod-name">Встраиваемый морозильник Miele FNS 7774 D</span>
+                <span class="prod-price">362 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kholodilnik-miele-kfn-4797-cd-ws/" data-specs="[[&quot;Тип&quot;, &quot;холодильник с морозильником&quot;], [&quot;Объём, л&quot;, &quot;360&quot;], [&quot;Класс энергоэфф.&quot;, &quot;C, D (старый A++)&quot;], [&quot;Темп. зон&quot;, &quot;3&quot;], [&quot;Ширина, см&quot;, &quot;59.7&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ba4/v8s3n7fnbgqyz38wkrp3nzjv4r49ylmo.webp" alt="Miele KFN 4797 CD WS" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Холодильники</span>
+                <span class="prod-name">Miele KFN 4797 CD WS</span>
+                <span class="prod-price">265 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kholodilnik-miele-kfn-4796-cd-el/" data-specs="[[&quot;Тип&quot;, &quot;холодильник с морозильником&quot;], [&quot;Объём, л&quot;, &quot;485&quot;], [&quot;Класс энергоэфф.&quot;, &quot;C, D (старый A++)&quot;], [&quot;Темп. зон&quot;, &quot;2&quot;], [&quot;Ширина, см&quot;, &quot;74.7&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/686/83rqtap78d955kswoerds5cummq0agzk.webp" alt="Miele KFN 4796 CD EL" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Холодильники</span>
+                <span class="prod-name">Miele KFN 4796 CD EL</span>
+                <span class="prod-price">289 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kholodilnik-miele-kfn-4795-ad-cleansteel/" data-specs="[[&quot;Тип&quot;, &quot;холодильник с морозильником&quot;], [&quot;Объём, л&quot;, &quot;371&quot;], [&quot;Класс энергоэфф.&quot;, &quot;A, B (старый A+++)&quot;], [&quot;Темп. зон&quot;, &quot;2&quot;], [&quot;Ширина, см&quot;, &quot;59.7&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/4ae/8plwqawka7508ea9g7etga17x8116p3w.webp" alt="Miele KFN 4795 AD CleanSteel" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Холодильники</span>
+                <span class="prod-name">Miele KFN 4795 AD CleanSteel</span>
+                <span class="prod-price">289 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-kholodilnik-miele-kdn-7724-e-active/" data-specs="[[&quot;Тип&quot;, &quot;холодильник с морозильником&quot;], [&quot;Объём, л&quot;, &quot;260&quot;], [&quot;Класс энергоэфф.&quot;, &quot;E, F (старый A+)&quot;], [&quot;Темп. зон&quot;, &quot;2&quot;], [&quot;Ширина, см&quot;, &quot;55.8&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c40/vq070gko1erspn46ruycf3zawuxnmhli.webp" alt="Miele KDN 7724 E Active" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Холодильники</span>
+                <span class="prod-name">Miele KDN 7724 E Active</span>
+                <span class="prod-price">203 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-pylesosy">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ca3/mrmqbvrxb7ckm35ypbbbmad2t6ixrw6p.webp" alt="Пылесосы" loading="lazy">
+          <span class="acc-name">Пылесосы</span>
+          <span class="acc-count">20 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-pylesosy" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgea3-complete-c3-cat-dog-ezhevichnyy-krasnyy-2058280267/" data-specs="[[&quot;Тип&quot;, &quot;с мешком&quot;], [&quot;Питание&quot;, &quot;сеть&quot;], [&quot;Тип уборки&quot;, &quot;сухая&quot;], [&quot;Ступеней мощн.&quot;, &quot;6&quot;], [&quot;Насадок&quot;, &quot;5&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff7/zj5s3ocwo6tnwi0mx9l9wdy2uy2anmx7.webp" alt="Miele SGEA3 Complete C3 Cat&amp;Dog ежевичный красный" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Пылесосы</span>
+                <span class="prod-name">Miele SGEA3 Complete C3 Cat&amp;Dog ежевичный красный</span>
+                <span class="prod-price">59 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sbad3-classic-c1-belyy-lotos-9666980/" data-specs="[[&quot;Тип&quot;, &quot;с мешком&quot;], [&quot;Питание&quot;, &quot;сеть&quot;], [&quot;Тип уборки&quot;, &quot;сухая&quot;], [&quot;Ступеней мощн.&quot;, &quot;6&quot;], [&quot;Насадок&quot;, &quot;4&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e50/ohax2gcre26kw7553rp31htksessznxy.webp" alt="Miele SBAD3 Classic C1 белый лотос" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Пылесосы</span>
+                <span class="prod-name">Miele SBAD3 Classic C1 белый лотос</span>
+                <span class="prod-price">32 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgsa3-complete-c3-parquet-celebration-chyernyy-obsidian-805462140/" data-specs="[[&quot;Тип&quot;, &quot;с мешком&quot;], [&quot;Питание&quot;, &quot;сеть&quot;], [&quot;Тип уборки&quot;, &quot;сухая&quot;], [&quot;Ступеней мощн.&quot;, &quot;6&quot;], [&quot;Насадок&quot;, &quot;5&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/83d/04p8rzy63qme2ugc0jrc82iucqki31mc.webp" alt="Miele SGSA3 Complete C3 Parquet Celebration чёрный обсидиан" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Пылесосы</span>
+                <span class="prod-name">Miele SGSA3 Complete C3 Parquet Celebration чёрный обсидиан</span>
+                <span class="prod-price">59 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgda3-complete-c3-score-red-ezhevichnyy-krasnyy-824278533/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff7/zj5s3ocwo6tnwi0mx9l9wdy2uy2anmx7.webp" alt="Miele SGDA3 Complete C3 Score Red ежевичный красный" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Пылесосы</span>
+                <span class="prod-name">Miele SGDA3 Complete C3 Score Red ежевичный красный</span>
+                <span class="prod-price">52 500 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-skcr3-blizzard-cx-1-excellence-belyy-lotos-26976768/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/c61/x03bptm99wap451dal693hgxl2baraik.webp" alt="Miele SKCR3 Blizzard CX 1 Excellence белый лотос безмешковый с контейнером" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Пылесосы</span>
+                <span class="prod-name">Miele SKCR3 Blizzard CX 1 Excellence белый лотос безмешковый с контейнером</span>
+                <span class="prod-price">69 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-miele-triflex-hx3-plus-aqua-12878390/" data-specs="[[&quot;Тип&quot;, &quot;вертикальный&quot;], [&quot;Питание&quot;, &quot;аккумулятор&quot;], [&quot;Тип уборки&quot;, &quot;сухая, влажная&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/063/b00fgkktquygsl5tv5v8bp1m59mpjpp3.webp" alt="Miele Triflex HX3 Plus Aqua" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Пылесосы</span>
+                <span class="prod-name">Miele Triflex HX3 Plus Aqua</span>
+                <span class="prod-price">133 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+        </div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-tile" type="button" aria-expanded="false" aria-controls="acc-mikrovolnovye-pechi">
+          <img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/678/q0snfyyqkwi0psvhhu8nagxumygeb5ce.webp" alt="Микроволновые печи" loading="lazy">
+          <span class="acc-name">Микроволновые печи</span>
+          <span class="acc-count">10 моделей</span>
+          <span class="acc-chev" aria-hidden="true">⌄</span>
+        </button>
+        <div class="acc-panel" id="acc-mikrovolnovye-pechi" hidden>
+          <div class="prods">
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-obsw/" data-specs="[[&quot;Мощность&quot;, &quot;Есть&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;], [&quot;Быстрый старт&quot;, &quot;Есть&quot;], [&quot;Подсветка&quot;, &quot;светодиодная&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/10b/ivb9nhi1i16lgjgefkwfp1lh7xphnhr2.webp" alt="Miele M7244TC OBSW" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Микроволновые печи</span>
+                <span class="prod-name">Miele M7244TC OBSW</span>
+                <span class="prod-price">179 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m2230sc-obsw/" data-specs="[[&quot;Мощность&quot;, &quot;Есть&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;], [&quot;Быстрый старт&quot;, &quot;Есть&quot;], [&quot;Подсветка&quot;, &quot;светодиодная&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/4ca/8wk95q01huw72dxdmgg7x33035q9knxl.webp" alt="Miele M2230SC OBSW черный обсидиан" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Микроволновые печи</span>
+                <span class="prod-name">Miele M2230SC OBSW черный обсидиан</span>
+                <span class="prod-price">129 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-grgr/" data-specs="[]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/137/8m8oym6fxubkj0i0y4j8qfl8pg8li73q.webp" alt="Miele M7244TC GRGR" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Микроволновые печи</span>
+                <span class="prod-name">Miele M7244TC GRGR</span>
+                <span class="prod-price">185 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-miele-m-6012-sc-edst/" data-specs="[[&quot;Мощность&quot;, &quot;Есть&quot;], [&quot;Ширина, см&quot;, &quot;52&quot;], [&quot;Быстрый старт&quot;, &quot;Есть&quot;], [&quot;Подсветка&quot;, &quot;светодиодная&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/674/qylkl89yza0txaokqu13iuzwdlo41kpv.webp" alt="Микроволновая печь Miele M 6012 SC EDST" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Микроволновые печи</span>
+                <span class="prod-name">Микроволновая печь Miele M 6012 SC EDST</span>
+                <span class="prod-price">102 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-clst/" data-specs="[[&quot;Мощность&quot;, &quot;Есть&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;], [&quot;Быстрый старт&quot;, &quot;Есть&quot;], [&quot;Подсветка&quot;, &quot;светодиодная&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/2a0/3t8g27cjhoqxfr3o05r0fhlwi60mwb2j.webp" alt="Miele M7244TC CLST" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Микроволновые печи</span>
+                <span class="prod-name">Miele M7244TC CLST</span>
+                <span class="prod-price">179 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+            <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7240tc-clst/" data-specs="[[&quot;Мощность&quot;, &quot;Есть&quot;], [&quot;Ширина, см&quot;, &quot;59.5&quot;], [&quot;Быстрый старт&quot;, &quot;Есть&quot;], [&quot;Подсветка&quot;, &quot;светодиодная&quot;]]">
+              <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/2a0/3t8g27cjhoqxfr3o05r0fhlwi60mwb2j.webp" alt="Miele M7240TC CLST" loading="lazy"></div>
+              <div class="prod-body">
+                <span class="prod-cat">Микроволновые печи</span>
+                <span class="prod-name">Miele M7240TC CLST</span>
+                <span class="prod-price">179 000 ₽</span>
+                <span class="prod-go">Подробнее →</span>
+              </div>
+            </a>
+          </div>
+          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
     </div>
@@ -1233,6 +1489,14 @@
       const fn=g('f-name'); if(fn)setTimeout(()=>fn.focus(),400);
     });
   })();
+
+  // catalog accordion
+  document.querySelectorAll('.acc-tile').forEach(t=>t.addEventListener('click',()=>{
+    const item=t.closest('.acc-item'), panel=item.querySelector('.acc-panel');
+    const open=item.classList.toggle('open');
+    t.setAttribute('aria-expanded', open?'true':'false');
+    if(open) panel.removeAttribute('hidden'); else panel.setAttribute('hidden','');
+  }));
 </script>
 </body>
 </html>
