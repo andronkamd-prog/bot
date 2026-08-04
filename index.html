@@ -414,6 +414,21 @@
   .cat-group:last-child{margin-bottom:0}
   .cat-group__head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid rgba(128,128,128,.2)}
   .cat-group__head h3{font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em}
+
+  /* ---------- product modal ---------- */
+  .modal{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;padding:20px}
+  .modal.open{display:flex}
+  .modal__backdrop{position:absolute;inset:0;background:rgba(20,20,20,.6)}
+  .modal__dialog{position:relative;z-index:1;background:var(--white);border-radius:16px;max-width:460px;width:100%;box-shadow:var(--shadow);overflow:hidden;animation:pmIn .2s ease}
+  @keyframes pmIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .modal__close{position:absolute;top:10px;right:12px;z-index:2;background:rgba(255,255,255,.85);border:none;width:36px;height:36px;border-radius:50%;font-size:24px;line-height:1;cursor:pointer;color:var(--ink)}
+  .modal__close:hover{background:#fff}
+  .modal__img{background:var(--paper);text-align:center;padding:24px}
+  .modal__img img{max-width:100%;max-height:280px;object-fit:contain}
+  .modal__body{padding:24px}
+  .modal__name{font-family:var(--display);font-size:22px;line-height:1.25;margin:8px 0 10px;color:var(--ink)}
+  .modal__price{font-size:22px;font-weight:600;color:var(--red);margin-bottom:20px}
+  .modal__body .btn{width:100%;text-align:center;justify-content:center}
 </style>
 </head>
 <body>
@@ -550,7 +565,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wei865wps-chrome-edition-1633677424/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wei865wps-chrome-edition-1633677424/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e54/2bdyir546tld6t4pgs5zxkijnhfc88h6.webp" alt="MIELE WEI865WPS Chrome Edition фронтальная" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Стиральные машины</span>
@@ -559,7 +574,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wsa-123-wcs/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wsa-123-wcs/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/090/2xuauvrb7cm54ez4p0oz1cwzhmsu4egj.webp" alt="Miele WSA 123 WCS" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Стиральные машины</span>
@@ -568,7 +583,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wwi860wps-white-edition-118808115/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/stiralnaya-mashina-miele-wwi860wps-white-edition-118808115/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/1a8/sbbro3cv5knhovwhguona5885af0ojic.webp" alt="MIELE WWI860WPS White Edition фронтальная" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Стиральные машины</span>
@@ -585,7 +600,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/sushilnaya-mashina-miele-twl780wp-white-edition/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-twl780wp-white-edition/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/281/lr5fjk65urh1a5hx1m26sqtfbcw5atpk.webp" alt="MIELE TWL780WP White Edition" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Сушильные машины</span>
@@ -594,7 +609,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tq-1000-wp-nova-edition/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tq-1000-wp-nova-edition/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/da5/7bcafqm9jmmpwg4jjm3tun0u6mw4je2x.webp" alt="Miele TQ 1000 WP Nova Edition" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Сушильные машины</span>
@@ -603,7 +618,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tel785wp-chrome-edition-346890753/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/sushilnaya-mashina-miele-tel785wp-chrome-edition-346890753/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3e2/og95r13hdocv48p88hby7twhduepftqr.webp" alt="MIELE TEL785WP Chrome Edition" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Сушильные машины</span>
@@ -620,7 +635,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g5481-scvi-45-sm/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g5481-scvi-45-sm/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3e1/faex3jsk32x4z7kf0wylls3x3ajfokk4.webp" alt="MIELE G5481 SCVi 45 см" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Посудомоечные машины</span>
@@ -629,7 +644,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/vstraivaemaya-posudomoechnaya-mashina-miele-g-5050-scvi/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemaya-posudomoechnaya-mashina-miele-g-5050-scvi/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/fb5/py2v7tgfk6ozvdzbin2zikr0fzcrwcd7.webp" alt="Miele G 5050 SCVi" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Посудомоечные машины</span>
@@ -638,7 +653,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g7673-scvi/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/posudomoechnaya-mashina-miele-g7673-scvi/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/442/b3efaium5kjtva38ckvlzg2zijpso996.webp" alt="Посудомоечная машина Miele G7673 SCVi" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Посудомоечные машины</span>
@@ -655,7 +670,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/kofemashina-zernovaya-cva7440-obsw/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-zernovaya-cva7440-obsw/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/6e5/u10hkabjns49rbt8a9qtlsdtsst00ppb.webp" alt="зерновая Miele CVA7440 OBSW" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Кофемашины</span>
@@ -664,7 +679,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/kofemashina-cm6360-obcm/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm6360-obcm/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/2bb/gsy90338y2krym7wb7o0o2g3884imjqm.webp" alt="Miele CM6360 OBCM" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Кофемашины</span>
@@ -673,7 +688,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/kofemashina-cm5510-ropf/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kofemashina-cm5510-ropf/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/aab/qjqxurg9eg20etajqx60ryayo8ghntwd.webp" alt="Miele CM5510 ROPF" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Кофемашины</span>
@@ -690,7 +705,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/dukhovoy-shkaf-h7464bp-obsw/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-h7464bp-obsw/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/eb7/im1u2pzz8vxd9zznlzdtxrn2bw0qffz4.webp" alt="Miele H7464BP OBSW с пароваркой 60 см" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Духовые шкафы</span>
@@ -699,7 +714,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/dukhovoy-shkaf-s-svch-h7840bmx-obsw/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-s-svch-h7840bmx-obsw/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38f/t04i4nng31vqo4191fs9qpty1lpc5ixg.webp" alt="Miele H7840BMX OBSW с СВЧ" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Духовые шкафы</span>
@@ -708,7 +723,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/dukhovoy-shkaf-miele-h2465b-obsw/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/dukhovoy-shkaf-miele-h2465b-obsw/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/8db/478yp65u96b15cjwdqbt2idtdg03q7bh.webp" alt="Miele H2465B OBSW чёрный обсидиан" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Духовые шкафы</span>
@@ -725,7 +740,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/vytyazhka-miele-das4620-chernyj-obsidian/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-miele-das4620-chernyj-obsidian/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/38a/q2ipsruhdolnxd5t1gu48mqvl5kbyq0f.webp" alt="Miele DAS4620 чёрный обсидиан матовый" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Вытяжки</span>
@@ -734,7 +749,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/vytyazhka-das4630/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-das4630/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/218/m6mgnaz8suogdbk00fp06vucsztb8175.webp" alt="Miele DAS4630" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Вытяжки</span>
@@ -743,7 +758,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/vytyazhka-da6698w-clst/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vytyazhka-da6698w-clst/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff1/lmus7wxqw43wcwc4pvgnloz9f2lfps56.webp" alt="Miele DA6698W CLST" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Вытяжки</span>
@@ -760,7 +775,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/vstraivaemyy-kholodilnik-miele-kfn-7744-c/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-kholodilnik-miele-kfn-7744-c/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/3b0/0iu0zfaqwkc1sk0d5k3j29wodep7kwfu.webp" alt="Miele KFN 7744 C" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Холодильники</span>
@@ -769,7 +784,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/vstraivaemyy-morozilnik-miele-fns-7774-d/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/vstraivaemyy-morozilnik-miele-fns-7774-d/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/9d2/wrdx83w4yviy9xy903ubyl55xid4mj5s.webp" alt="Встраиваемый морозильник Miele FNS 7774 D" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Холодильники</span>
@@ -778,7 +793,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/kholodilnik-miele-kfn-4797-cd-ws/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/kholodilnik-miele-kfn-4797-cd-ws/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ba4/v8s3n7fnbgqyz38wkrp3nzjv4r49ylmo.webp" alt="Miele KFN 4797 CD WS" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Холодильники</span>
@@ -795,7 +810,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/pylesos-sgea3-complete-c3-cat-dog-ezhevichnyy-krasnyy-2058280267/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgea3-complete-c3-cat-dog-ezhevichnyy-krasnyy-2058280267/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/ff7/zj5s3ocwo6tnwi0mx9l9wdy2uy2anmx7.webp" alt="Miele SGEA3 Complete C3 Cat&amp;Dog ежевичный красный" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Пылесосы</span>
@@ -804,7 +819,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/pylesos-sbad3-classic-c1-belyy-lotos-9666980/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sbad3-classic-c1-belyy-lotos-9666980/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/e50/ohax2gcre26kw7553rp31htksessznxy.webp" alt="Miele SBAD3 Classic C1 белый лотос" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Пылесосы</span>
@@ -813,7 +828,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/pylesos-sgsa3-complete-c3-parquet-celebration-chyernyy-obsidian-805462140/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/pylesos-sgsa3-complete-c3-parquet-celebration-chyernyy-obsidian-805462140/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/83d/04p8rzy63qme2ugc0jrc82iucqki31mc.webp" alt="Miele SGSA3 Complete C3 Parquet Celebration чёрный обсидиан" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Пылесосы</span>
@@ -830,7 +845,7 @@
         <a class="link-arrow" href="#zayavka">Оставить заявку →</a>
       </div>
       <div class="prods">
-      <a class="prod" href="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-obsw/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-obsw/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/10b/ivb9nhi1i16lgjgefkwfp1lh7xphnhr2.webp" alt="Miele M7244TC OBSW" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Микроволновые печи</span>
@@ -839,7 +854,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/mikrovolnovaya-pech-m2230sc-obsw/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m2230sc-obsw/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/4ca/8wk95q01huw72dxdmgg7x33035q9knxl.webp" alt="Miele M2230SC OBSW черный обсидиан" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Микроволновые печи</span>
@@ -848,7 +863,7 @@
           <span class="prod-go">Подробнее →</span>
         </div>
       </a>
-      <a class="prod" href="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-grgr/" target="_blank" rel="noopener">
+      <a class="prod js-prod" href="#zayavka" data-url="https://miele-electronics.ru/product/mikrovolnovaya-pech-m7244tc-grgr/">
         <div class="prod-img"><img src="https://miele-electronics.ru/upload/dev2fun.imagecompress/webp/iblock/137/8m8oym6fxubkj0i0y4j8qfl8pg8li73q.webp" alt="Miele M7244TC GRGR" loading="lazy"></div>
         <div class="prod-body">
           <span class="prod-cat">Микроволновые печи</span>
@@ -1041,6 +1056,7 @@
         <input id="f-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required>
       </div>
       <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+      <input type="hidden" name="model" id="f-model">
       <button type="submit" class="btn" id="leadSubmit">Оставить заявку</button>
       <p class="form-note" id="leadMsg">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Или позвоните: <a href="tel:+78002226666" style="color:var(--red);font-weight:600">8 (800) 222-66-66</a></p>
       <p class="form-alt">Почта: <a href="mailto:miele@miele-electronics.ru">miele@miele-electronics.ru</a></p>
@@ -1095,6 +1111,21 @@
   </div>
 </footer>
 
+<!-- ================= PRODUCT MODAL ================= -->
+<div class="modal" id="prodModal" aria-hidden="true">
+  <div class="modal__backdrop" data-close></div>
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pm-name">
+    <button class="modal__close" type="button" aria-label="Закрыть" data-close>&times;</button>
+    <div class="modal__img"><img id="pm-img" src="" alt="" loading="lazy"></div>
+    <div class="modal__body">
+      <span class="prod-cat" id="pm-cat"></span>
+      <h3 class="modal__name" id="pm-name"></h3>
+      <div class="modal__price" id="pm-price"></div>
+      <button class="btn" type="button" id="pm-cta">Оставить заявку на эту модель</button>
+    </div>
+  </div>
+</div>
+
 <script>
   // сохраняем UTM/yclid при заходе (переживает перезагрузку/паузу перед отправкой)
   try {
@@ -1122,6 +1153,7 @@
     const name = (lf.elements['name'].value || '').trim();
     const phone = (lf.elements['phone'].value || '').trim();
     const _hp = lf.elements['_hp'].value || '';
+    const model = ((lf.elements['model'] && lf.elements['model'].value) || '').trim();
     if (phone.replace(/\D/g, '').length < 10) {
       msg.innerHTML = 'Пожалуйста, введите корректный номер телефона.';
       lf.elements['phone'].focus();
@@ -1147,7 +1179,7 @@
       const r = await fetch('https://miele-electronics.ru/lp-lead.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, _hp, ...utm })
+        body: JSON.stringify({ name, phone, model, _hp, ...utm })
       });
       const d = await r.json().catch(() => ({}));
       if (r.ok && d.ok) {
@@ -1159,6 +1191,40 @@
       msg.innerHTML = 'Не удалось отправить заявку. Пожалуйста, позвоните нам: <a href="tel:+78002226666" style="color:var(--red);font-weight:600">8 (800) 222-66-66</a>';
     }
   });
+
+  // product modal
+  (function(){
+    const modal=document.getElementById('prodModal'); if(!modal) return;
+    const g=id=>document.getElementById(id);
+    const pmImg=g('pm-img'),pmCat=g('pm-cat'),pmName=g('pm-name'),pmPrice=g('pm-price'),pmCta=g('pm-cta'),fModel=g('f-model');
+    let lastFocus=null;
+    const txt=(card,sel)=>{const el=card.querySelector(sel);return el?el.textContent.trim():'';};
+    function open(card){
+      const img=card.querySelector('.prod-img img');
+      pmImg.src=img?img.src:''; pmImg.alt=img?img.alt:'';
+      pmCat.textContent=txt(card,'.prod-cat');
+      const name=txt(card,'.prod-name'); pmName.textContent=name;
+      pmPrice.textContent=txt(card,'.prod-price');
+      pmCta.dataset.model=name;
+      lastFocus=document.activeElement;
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow='hidden';
+    }
+    function close(){
+      modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow='';
+      if(lastFocus&&lastFocus.focus)lastFocus.focus();
+    }
+    document.querySelectorAll('.js-prod').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();open(a);}));
+    modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',close));
+    addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+    pmCta.addEventListener('click',()=>{
+      if(fModel)fModel.value=pmCta.dataset.model||'';
+      close();
+      const z=g('zayavka'); if(z)z.scrollIntoView({behavior:'smooth'});
+      const fn=g('f-name'); if(fn)setTimeout(()=>fn.focus(),400);
+    });
+  })();
 </script>
 </body>
 </html>
