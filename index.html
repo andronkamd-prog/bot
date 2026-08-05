@@ -259,20 +259,22 @@
   }
 
   /* ---------- why ---------- */
-  .sec--why{background:var(--ink);color:var(--white)}
-  .sec--why .kicker{color:#e8b7bd}
-  .why-grid{display:grid;gap:0;border-top:1px solid var(--line-light)}
+  .sec--why{background:var(--white);color:var(--ink)}
+  .sec--dark{background:var(--ink);color:var(--white)}
+  .sec--dark .kicker{color:#e8b7bd}
+  .sec--why .kicker{color:var(--red)}
+  .why-grid{display:grid;gap:0;border-top:1px solid var(--line)}
   .why{
-    padding:28px 0;border-bottom:1px solid var(--line-light);
+    padding:28px 0;border-bottom:1px solid var(--line);
     display:grid;grid-template-columns:56px 1fr;gap:18px;align-items:flex-start;
   }
   .why-num{
-    font-family:var(--display);font-size:15px;color:var(--muted-light);
-    border:1px solid var(--line-light);width:44px;height:44px;border-radius:50%;
+    font-family:var(--display);font-size:15px;color:var(--muted);
+    border:1px solid var(--line);width:44px;height:44px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
   }
   .why b{display:block;font-family:var(--display);font-weight:400;font-size:19px;margin-bottom:8px;letter-spacing:.01em}
-  .why p{font-size:14px;color:var(--muted-light);max-width:60ch}
+  .why p{font-size:14px;color:var(--muted);max-width:60ch}
   @media (min-width:920px){
     .why-grid{grid-template-columns:1fr 1fr;column-gap:64px}
   }
@@ -491,10 +493,10 @@
         <button type="button" class="btn js-pick">Подобрать технику под задачу</button>
       </div>
       <div class="hero-facts rv rv-d3">
-        <div><b>В день заказа</b><span>доставка при наличии товара</span></div>
+        <div><b>Оригинал</b><span>официальная поставка, заводская упаковка</span></div>
         <div><b>2 года</b><span>официальная гарантия</span></div>
+        <div><b>Бесплатно</b><span>доставка и подъём по Москве и СПб</span></div>
         <div><b>При получении</b><span>оплата наличными или картой</span></div>
-        <div><b>Русификация</b><span>меню и инструкции на русском</span></div>
       </div>
     </div>
     <div class="hero-visual rv rv-d2" aria-hidden="true">
@@ -505,28 +507,6 @@
   </div>
 </section>
 
-<!-- ================= TRUST ================= -->
-<div class="trust">
-  <div class="wrap trust-in">
-    <div class="trust-item rv">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M8.5 12l2.5 2.5 4.5-4.5"/></svg>
-      <div><b>Оригинальная техника</b><span>поставки из Евросоюза и стран СНГ в заводской упаковке</span></div>
-    </div>
-    <div class="trust-item rv rv-d1">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><rect x="2" y="7" width="13" height="10"/><path d="M15 10h4l3 3v4h-7M5 20a2 2 0 100-4 2 2 0 000 4zm12 0a2 2 0 100-4 2 2 0 000 4z"/></svg>
-      <div><b>Бесплатная доставка</b><span>и подъём на этаж по Москве и Санкт-Петербургу</span></div>
-    </div>
-    <div class="trust-item rv rv-d2">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><path d="M3 21V8l9-5 9 5v13M9 21v-6h6v6"/></svg>
-      <div><b>Шоурум в Москве</b><span>ТЦ «Краснопрудный» — вся техника вживую</span></div>
-    </div>
-    <div class="trust-item rv rv-d3">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8c0014" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
-      <div><b>Сервис по всей России</b><span>авторизованные сервисные центры и оригинальные запчасти</span></div>
-    </div>
-  </div>
-</div>
-
 <!-- ================= WHY ================= -->
 <section class="sec sec--why" id="why">
   <div class="wrap">
@@ -535,35 +515,35 @@
         <span class="kicker">Почему мы</span>
         <h2>Всё для комфортной покупки</h2>
       </div>
-      <p style="color:var(--muted-light)">Мы позаботились о каждом этапе — от выбора до эксплуатации.</p>
+      <p style="color:var(--muted)">Мы позаботились о каждом этапе — от выбора до эксплуатации.</p>
     </div>
     <div class="why-grid">
       <div class="why rv">
         <span class="why-num">01</span>
         <div>
-          <b>Бесплатная доставка и подъём</b>
-          <p>Доставляем технику Miele бесплатно по Москве, Санкт-Петербургу и всей России. Подъём на этаж — также бесплатно в пределах МКАД и КАД. Оплата возможна наличными при получении.</p>
+          <b>Сервис по всей России</b>
+          <p>Обслуживание в авторизованных сервисных центрах по всей стране и быстрая поставка оригинальных запчастей.</p>
         </div>
       </div>
       <div class="why rv rv-d1">
         <span class="why-num">02</span>
         <div>
-          <b>Гарантия 2 года + сервис по всей России</b>
-          <p>На всю технику действует официальная гарантия 2 года. Обслуживание в авторизованных сервисных центрах по всей стране и быстрая поставка оригинальных запчастей.</p>
+          <b>Шоурум в Москве</b>
+          <p>Вся техника Miele вживую — ТЦ «Краснопрудный». Посмотрите и сравните модели перед покупкой.</p>
         </div>
       </div>
       <div class="why rv">
         <span class="why-num">03</span>
         <div>
-          <b>Установка и настройка техники</b>
-          <p>Помогаем с профессиональной установкой техники после доставки. Все приборы проходят русификацию — меню и инструкции полностью на русском языке.</p>
+          <b>Русификация меню и инструкций</b>
+          <p>Все приборы проходят русификацию: меню и инструкции полностью на русском языке.</p>
         </div>
       </div>
       <div class="why rv rv-d1">
         <span class="why-num">04</span>
         <div>
-          <b>Официальный магазин Miele</b>
-          <p>Продаём только оригинальную технику Miele с заводской гарантией и полным пакетом документов — подлинность каждого прибора подтверждена.</p>
+          <b>Полный пакет документов</b>
+          <p>Гарантийный талон, чеки и документы на каждый прибор — подлинность подтверждена.</p>
         </div>
       </div>
     </div>
@@ -1224,7 +1204,7 @@
 </section>
 
 <!-- ================= SERVICES ================= -->
-<section class="sec" id="services">
+<section class="sec sec--dark" id="services">
   <div class="wrap">
     <div class="sec-head rv">
       <div>
