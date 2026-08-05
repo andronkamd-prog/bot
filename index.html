@@ -613,7 +613,7 @@
         <span class="kicker">Каталог</span>
         <h2>Категории товаров</h2>
       </div>
-      <a class="btn btn--dl rv" href="catalog.pdf" download>⭳ Скачать полный каталог (PDF)</a>
+      <button type="button" class="btn btn--dl rv js-dl">⭳ Скачать полный каталог (PDF)</button>
     </div>
     <div class="acc rv">
       <div class="acc-item">
@@ -680,7 +680,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -747,7 +747,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -814,7 +814,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -881,7 +881,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -948,7 +948,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -1015,7 +1015,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -1082,7 +1082,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -1149,7 +1149,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
       <div class="acc-item">
@@ -1216,7 +1216,7 @@
               </div>
             </a>
           </div>
-          <a class="acc-more" href="catalog.pdf" download>Все модели категории — в полном каталоге (PDF) →</a>
+          <a class="acc-more js-dl" href="catalog.pdf">Все модели категории — в полном каталоге (PDF) →</a>
         </div>
       </div>
     </div>
@@ -1378,6 +1378,25 @@
 </footer>
 
 <!-- ================= PRODUCT MODAL ================= -->
+<!-- ================= DOWNLOAD (каталог) MODAL ================= -->
+<div class="modal" id="dlModal" aria-hidden="true">
+  <div class="modal__backdrop" data-dl-close></div>
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="dl-title">
+    <button class="modal__close" type="button" aria-label="Закрыть" data-dl-close>&times;</button>
+    <div class="modal__body">
+      <h3 id="dl-title" style="font-family:var(--display);font-weight:400;font-size:22px;line-height:1.25;margin:0 0 6px">Скачать полный каталог Miele</h3>
+      <p style="color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 18px">Оставьте телефон — и полный каталог (PDF) сразу откроется для скачивания. Эксперт поможет с выбором и заказом.</p>
+      <form id="dlForm" novalidate>
+        <div class="field"><label for="d-name">Ваше имя (необязательно)</label><input id="d-name" type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name"></div>
+        <div class="field"><label for="d-phone">Телефон</label><input id="d-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></div>
+        <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <button type="submit" class="btn" id="dlSubmit" style="width:100%;padding:16px;margin-top:4px">Получить каталог</button>
+        <p class="form-note" id="dlMsg" style="margin-top:12px">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- ================= PICK (подбор техники) MODAL ================= -->
 <div class="modal" id="pickModal" aria-hidden="true">
   <div class="modal__backdrop" data-pick-close></div>
@@ -1547,6 +1566,34 @@
         const r=await fetch('https://miele-electronics.ru/lp-lead.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ name, phone, model: need, _hp, form:'Подбор техники', ...utm })});
         const d=await r.json().catch(()=>({}));
         if(r.ok&&d.ok){ try{ ym(111319646,'reachGoal','q-leads'); }catch(e){} form.innerHTML='<h3 style="font-family:var(--display);font-weight:400;font-size:22px">Спасибо! Заявка принята.</h3><p class="form-note">Наш эксперт свяжется с вами в ближайшее время.</p>'; }
+        else { throw new Error(d.error||'error'); }
+      }catch(err){ btn.disabled=false; btn.textContent=orig; msg.innerHTML='Не удалось отправить. Напишите нам: <a href="mailto:miele@miele-electronics.ru" style="color:var(--red);font-weight:600">miele@miele-electronics.ru</a>'; }
+    });
+  })();
+
+  // download (каталог) popup — телефон -> заявка -> скачивание
+  (function(){
+    const modal=document.getElementById('dlModal'); if(!modal) return;
+    const form=document.getElementById('dlForm'), msg=document.getElementById('dlMsg'), btn=document.getElementById('dlSubmit');
+    let lastFocus=null;
+    function startDownload(){ const a=document.createElement('a'); a.href='catalog.pdf'; a.download='Miele-katalog.pdf'; document.body.appendChild(a); a.click(); a.remove(); }
+    function open(){ lastFocus=document.activeElement; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; const p=document.getElementById('d-phone'); if(p) setTimeout(()=>p.focus(),150); }
+    function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+    document.querySelectorAll('.js-dl').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));
+    modal.querySelectorAll('[data-dl-close]').forEach(el=>el.addEventListener('click',close));
+    addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name=(form.elements['name'].value||'').trim();
+      const phone=(form.elements['phone'].value||'').trim();
+      const _hp=form.elements['_hp'].value||'';
+      if(phone.replace(/\D/g,'').length<10){ msg.innerHTML='Пожалуйста, введите корректный номер телефона.'; form.elements['phone'].focus(); return; }
+      btn.disabled=true; const orig=btn.textContent; btn.textContent='Отправляем…';
+      try{
+        const utm=(()=>{ const q=new URLSearchParams(location.search),o={}; const keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid']; keys.forEach(k=>{const v=q.get(k); if(v)o[k]=v;}); if(document.referrer)o.utm_referrer=document.referrer; try{ keys.concat('utm_referrer').forEach(k=>{ if(o[k])localStorage.setItem('lp_'+k,o[k]); else {const sv=localStorage.getItem('lp_'+k); if(sv)o[k]=sv;} }); }catch(e){} return o; })();
+        const r=await fetch('https://miele-electronics.ru/lp-lead.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ name, phone, model:'Скачивание каталога', _hp, form:'Скачать каталог', ...utm })});
+        const d=await r.json().catch(()=>({}));
+        if(r.ok&&d.ok){ try{ ym(111319646,'reachGoal','q-leads'); }catch(e){} startDownload(); form.innerHTML='<h3 style="font-family:var(--display);font-weight:400;font-size:22px">Спасибо! Каталог скачивается…</h3><p class="form-note">Если загрузка не началась, <a href="catalog.pdf" download style="color:var(--red);font-weight:600">нажмите здесь</a>.</p>'; }
         else { throw new Error(d.error||'error'); }
       }catch(err){ btn.disabled=false; btn.textContent=orig; msg.innerHTML='Не удалось отправить. Напишите нам: <a href="mailto:miele@miele-electronics.ru" style="color:var(--red);font-weight:600">miele@miele-electronics.ru</a>'; }
     });
