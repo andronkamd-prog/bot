@@ -476,7 +476,7 @@
       </svg>
       <small>Electronics</small>
     </a>
-    <a class="btn" href="#zayavka"><span class="hdr-cta-label">Оставить заявку</span><span class="hdr-cta-label-sm">Заявка</span></a>
+    <a class="btn js-pick" href="#zayavka"><span class="hdr-cta-label">Оставить заявку</span><span class="hdr-cta-label-sm">Заявка</span></a>
   </div>
 </header>
 
@@ -488,7 +488,7 @@
       <h1 class="rv rv-d1">Оригинальная техника <em>Miele</em> — для дома, который вы любите</h1>
       <p class="lead rv rv-d2">Немецкая надёжность в заводской упаковке: стиральные машины, кофемашины, духовые шкафы и встраиваемая техника. Русифицированное меню, официальная гарантия и доставка по всей России.</p>
       <div class="hero-actions rv rv-d3">
-        <a class="btn" href="#catalog">Выбрать технику</a>
+        <button type="button" class="btn js-pick">Подобрать технику под задачу</button>
       </div>
       <div class="hero-facts rv rv-d3">
         <div><b>В день заказа</b><span>доставка при наличии товара</span></div>
@@ -1378,6 +1378,26 @@
 </footer>
 
 <!-- ================= PRODUCT MODAL ================= -->
+<!-- ================= PICK (подбор техники) MODAL ================= -->
+<div class="modal" id="pickModal" aria-hidden="true">
+  <div class="modal__backdrop" data-pick-close></div>
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pick-title">
+    <button class="modal__close" type="button" aria-label="Закрыть" data-pick-close>&times;</button>
+    <div class="modal__body">
+      <h3 id="pick-title" style="font-family:var(--display);font-weight:400;font-size:22px;line-height:1.25;margin:0 0 6px">Подберём технику Miele под вашу задачу</h3>
+      <p style="color:var(--muted);font-size:14px;line-height:1.5;margin:0 0 18px">Оставьте контакты — эксперт подберёт модель под задачу и бюджет, ответит на вопросы и поможет с заказом.</p>
+      <form id="pickForm" novalidate>
+        <div class="field"><label for="p-name">Ваше имя</label><input id="p-name" type="text" name="name" placeholder="Как к вам обращаться" autocomplete="name" required></div>
+        <div class="field"><label for="p-phone">Телефон</label><input id="p-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" required></div>
+        <div class="field"><label for="p-need">Что подбираем? (необязательно)</label><input id="p-need" type="text" name="need" placeholder="Напр. стиральная машина, кофемашина"></div>
+        <input type="text" name="_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+        <button type="submit" class="btn" id="pickSubmit" style="width:100%;padding:16px;margin-top:4px">Подобрать технику</button>
+        <p class="form-note" id="pickMsg" style="margin-top:12px">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
 <div class="modal" id="prodModal" aria-hidden="true">
   <div class="modal__backdrop" data-close></div>
   <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pm-name">
@@ -1503,6 +1523,34 @@
     t.setAttribute('aria-expanded', open?'true':'false');
     if(open) panel.removeAttribute('hidden'); else panel.setAttribute('hidden','');
   }));
+
+  // pick (подбор техники) popup
+  (function(){
+    const modal=document.getElementById('pickModal'); if(!modal) return;
+    const form=document.getElementById('pickForm'), msg=document.getElementById('pickMsg'), btn=document.getElementById('pickSubmit');
+    let lastFocus=null;
+    function open(){ lastFocus=document.activeElement; modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; const n=document.getElementById('p-name'); if(n) setTimeout(()=>n.focus(),150); }
+    function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; if(lastFocus&&lastFocus.focus) lastFocus.focus(); }
+    document.querySelectorAll('.js-pick').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();open();}));
+    modal.querySelectorAll('[data-pick-close]').forEach(el=>el.addEventListener('click',close));
+    addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close();});
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const name=(form.elements['name'].value||'').trim();
+      const phone=(form.elements['phone'].value||'').trim();
+      const need=(form.elements['need'].value||'').trim();
+      const _hp=form.elements['_hp'].value||'';
+      if(phone.replace(/\D/g,'').length<10){ msg.innerHTML='Пожалуйста, введите корректный номер телефона.'; form.elements['phone'].focus(); return; }
+      btn.disabled=true; const orig=btn.textContent; btn.textContent='Отправляем…';
+      try{
+        const utm=(()=>{ const q=new URLSearchParams(location.search),o={}; const keys=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','yclid']; keys.forEach(k=>{const v=q.get(k); if(v)o[k]=v;}); if(document.referrer)o.utm_referrer=document.referrer; try{ keys.concat('utm_referrer').forEach(k=>{ if(o[k])localStorage.setItem('lp_'+k,o[k]); else {const sv=localStorage.getItem('lp_'+k); if(sv)o[k]=sv;} }); }catch(e){} return o; })();
+        const r=await fetch('https://miele-electronics.ru/lp-lead.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({ name, phone, model: need, _hp, form:'Подбор техники', ...utm })});
+        const d=await r.json().catch(()=>({}));
+        if(r.ok&&d.ok){ try{ ym(111319646,'reachGoal','q-leads'); }catch(e){} form.innerHTML='<h3 style="font-family:var(--display);font-weight:400;font-size:22px">Спасибо! Заявка принята.</h3><p class="form-note">Наш эксперт свяжется с вами в ближайшее время.</p>'; }
+        else { throw new Error(d.error||'error'); }
+      }catch(err){ btn.disabled=false; btn.textContent=orig; msg.innerHTML='Не удалось отправить. Напишите нам: <a href="mailto:miele@miele-electronics.ru" style="color:var(--red);font-weight:600">miele@miele-electronics.ru</a>'; }
+    });
+  })();
 </script>
 </body>
 </html>
